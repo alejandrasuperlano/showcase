@@ -1,6 +1,6 @@
 baseURL = "https://mbolanoss.github.io/showcase"
 languageCode = "en-us"
-title = "Showcase Template"
+title = "Visual computing"
 theme = 'book'
 
 # Book configuration
