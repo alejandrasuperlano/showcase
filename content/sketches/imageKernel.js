@@ -2,17 +2,31 @@ new p5((p) => {
   let originalImg;
   let currentImg;
 
-  let noKernel = [
-    [0, 0, 0],
-    [0, 1, 0],
-    [0, 0, 0],
-  ];
+  let kernels = {
+    none: [
+      [0, 0, 0],
+      [0, 1, 0],
+      [0, 0, 0],
+    ],
 
-  let outlineKernel = [
-    [-1, -1, -1],
-    [-1, 8, -1],
-    [-1, -1, -1],
-  ];
+    outline: [
+      [-1, -1, -1],
+      [-1, 8, -1],
+      [-1, -1, -1],
+    ],
+
+    emboss: [
+      [-2, -1, 0],
+      [-1, 1, 1],
+      [0, 1, 2],
+    ],
+
+    blur: [
+      [0.0625, 0.125, 0.0625],
+      [0.125, 0.25, 0.125],
+      [0.0625, 0.125, 0.0625],
+    ],
+  };
 
   let applyKernelToPixel = (x, y, kernel, kernelSize) => {
     let newR = 0.0;
@@ -48,6 +62,15 @@ new p5((p) => {
     return p.color(newR, newG, newB);
   };
 
+  let applyKernelToImage = (kernel) => {
+    for (let x = 0; x < currentImg.width; x++) {
+      for (let y = 0; y < currentImg.height; y++) {
+        let newPixel = applyKernelToPixel(x, y, kernel, 3);
+        currentImg.set(x, y, newPixel);
+      }
+    }
+  };
+
   p.preload = () => {
     originalImg = p.loadImage("/showcase/sketches/animal.jpg");
     currentImg = p.loadImage("/showcase/sketches/animal.jpg");
@@ -55,35 +78,26 @@ new p5((p) => {
 
   p.setup = () => {
     p.createCanvas(originalImg.width, originalImg.height);
+
+    radio = p.createRadio();
+    radio.option("none", "Normal");
+    radio.option("outline", "Outline");
+    radio.option("emboss", "Emboss");
+    radio.option("blur", "Blur");
+    radio.selected("none");
+
+    radio.changed(() => {
+      applyKernelToImage(kernels[radio.value()]);
+      currentImg.updatePixels();
+      p.redraw();
+    });
+    p.textAlign(p.CENTER);
+
     p.noLoop();
   };
 
   p.draw = () => {
     p.imageMode(p.CENTER);
     p.image(currentImg, currentImg.width / 2, currentImg.height / 2);
-  };
-
-  p.keyTyped = () => {
-    if (p.key == "a") {
-      for (let x = 0; x < currentImg.width; x++) {
-        for (let y = 0; y < currentImg.height; y++) {
-          let newPixel = applyKernelToPixel(x, y, noKernel, 3);
-          currentImg.set(x, y, newPixel);
-        }
-      }
-
-      currentImg.updatePixels();
-      p.redraw();
-    } else if (p.key == "b") {
-      for (let x = 0; x < currentImg.width; x++) {
-        for (let y = 0; y < currentImg.height; y++) {
-          let newPixel = applyKernelToPixel(x, y, outlineKernel, 3);
-          currentImg.set(x, y, newPixel);
-        }
-      }
-
-      currentImg.updatePixels();
-      p.redraw();
-    }
   };
 }, "imageKernel");
