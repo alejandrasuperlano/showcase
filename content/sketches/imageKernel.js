@@ -48,22 +48,22 @@ new p5((p) => {
     return p.color(newR, newG, newB);
   };
 
-  p.preload = function () {
+  p.preload = () => {
     originalImg = p.loadImage("/showcase/sketches/animal.jpg");
     currentImg = p.loadImage("/showcase/sketches/animal.jpg");
   };
 
-  p.setup = function () {
+  p.setup = () => {
     p.createCanvas(originalImg.width, originalImg.height);
     p.noLoop();
   };
 
-  p.draw = function () {
+  p.draw = () => {
     p.imageMode(p.CENTER);
     p.image(currentImg, currentImg.width / 2, currentImg.height / 2);
   };
 
-  p.keyTyped = function () {
+  p.keyTyped = () => {
     if (p.key == "a") {
       for (let x = 0; x < currentImg.width; x++) {
         for (let y = 0; y < currentImg.height; y++) {
