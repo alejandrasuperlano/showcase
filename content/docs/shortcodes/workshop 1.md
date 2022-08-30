@@ -1,6 +1,8 @@
-# Illusion 1 (Test: saacostam)
+# Illusion 1: Stepping Feet
 
-{{<p5-iframe ver="1.4.2" sketch="/showcase/sketches/illusions/SteppingFeet.js" lib1="https://cdnjs.cloudflare.com/ajax/libs/p5.js/1.4.2/p5.min.js" width="400" height="250">}}
+{{< hint warning >}} Click on the canvas to reveal the illusion {{< /hint >}}
+
+{{<p5-iframe ver="1.4.2" sketch="/showcase/sketches/illusions/SteppingFeet.js" lib1="https://cdnjs.cloudflare.com/ajax/libs/p5.js/1.4.2/p5.min.js" width="420px" height="270px">}}
 
 # Illusion 2
 
