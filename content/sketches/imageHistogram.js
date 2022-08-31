@@ -1,10 +1,15 @@
 new p5((p) => {
-  let radio;
+  let width = 350;
+  let height = 350;
+
   let img;
   let pixels = new Array(256).fill(0);
 
-  let originX = 60;
-  let originY = 340;
+  let radio;
+
+  let originX = width / 8;
+  let originY = height * 0.85;
+  let originXOffset = 10;
 
   let resetHistogram = () => {
     p.clear();
@@ -15,7 +20,13 @@ new p5((p) => {
     p.line(originX, originY, originX, originY - 280);
 
     // X axis
-    p.line(originX, originY, originX + 260, originY);
+    p.text("Color intensity", width / 2, originY + 40);
+    p.line(originX, originY, originX + 280, originY);
+    for (let i = 0; i <= 5; i++) {
+      let x = originX + originXOffset + 50 * i;
+      p.line(x, originY, x, originY + 5);
+      p.text(`${i * 50}`, x, originY + 20);
+    }
   };
 
   let countPixels = (color) => {
@@ -37,7 +48,12 @@ new p5((p) => {
   let drawHistogram = (color) => {
     p.stroke(color);
     for (let i = 0; i < 256; i++) {
-      p.line(originX + i, originY, originX + i, originY - pixels[i] / 7);
+      p.line(
+        originX + i + originXOffset,
+        originY,
+        originX + i + originXOffset,
+        originY - pixels[i] / 7
+      );
     }
     console.log(pixels[0]);
     pixels = new Array(256).fill(0);
@@ -48,8 +64,10 @@ new p5((p) => {
   };
 
   p.setup = () => {
-    p.createCanvas(400, 400);
+    p.createCanvas(width, height);
     p.background("white");
+    p.textSize(10);
+    p.textAlign(p.CENTER, p.CENTER);
 
     radio = p.createRadio();
     radio.option("red", "Red");
