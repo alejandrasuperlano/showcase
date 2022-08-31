@@ -1,9 +1,11 @@
 new p5((p) => {
+  let reset = false;
   let width = 350;
   let height = 350;
 
   let img;
   let pixels = new Array(256).fill(0);
+  let currentColor;
 
   let radio;
 
@@ -29,15 +31,15 @@ new p5((p) => {
     }
   };
 
-  let countPixels = (color) => {
+  let countPixels = () => {
     for (let x = 0; x < img.width; x++) {
       for (let y = 0; y < img.height; y++) {
         let pixel = img.get(x, y);
 
         let value =
-          color === "red"
+          currentColor === "red"
             ? p.red(pixel)
-            : color === "green"
+            : currentColor === "green"
             ? p.green(pixel)
             : p.blue(pixel);
         pixels[value] += 1;
@@ -45,8 +47,10 @@ new p5((p) => {
     }
   };
 
-  let drawHistogram = (color) => {
-    p.stroke(color);
+  let drawHistogram = () => {
+    resetHistogram();
+
+    p.stroke(currentColor);
     for (let i = 0; i < 256; i++) {
       p.line(
         originX + i + originXOffset,
@@ -55,7 +59,7 @@ new p5((p) => {
         originY - pixels[i] / 7
       );
     }
-    console.log(pixels[0]);
+
     pixels = new Array(256).fill(0);
   };
 
@@ -75,17 +79,15 @@ new p5((p) => {
     radio.option("blue", "Blue");
 
     radio.changed(() => {
-      let color = radio.value();
+      currentColor = radio.value();
+      countPixels();
       p.redraw();
-
-      countPixels(color);
-      drawHistogram(color);
     });
 
     p.noLoop();
   };
 
   p.draw = () => {
-    resetHistogram();
+    drawHistogram();
   };
 }, "imageHistogram");
