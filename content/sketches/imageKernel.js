@@ -1,4 +1,6 @@
 new p5((p) => {
+  let reset = false;
+
   let originalImg;
   let currentImg;
 
@@ -87,9 +89,16 @@ new p5((p) => {
     radio.selected("none");
 
     radio.changed(() => {
-      applyKernelToImage(kernels[radio.value()]);
-      currentImg.updatePixels();
-      p.redraw();
+      let selection = radio.value();
+      if (selection === "none") {
+        reset = true;
+        p.redraw();
+        reset = false;
+      } else {
+        applyKernelToImage(kernels[radio.value()]);
+        currentImg.updatePixels();
+        p.redraw();
+      }
     });
     p.textAlign(p.CENTER);
 
@@ -98,6 +107,10 @@ new p5((p) => {
 
   p.draw = () => {
     p.imageMode(p.CENTER);
-    p.image(currentImg, currentImg.width / 2, currentImg.height / 2);
+    if (reset) {
+      p.image(originalImg, originalImg.width / 2, originalImg.height / 2);
+    } else {
+      p.image(currentImg, currentImg.width / 2, currentImg.height / 2);
+    }
   };
 }, "imageKernel");
