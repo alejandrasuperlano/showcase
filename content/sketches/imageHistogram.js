@@ -5,7 +5,7 @@ new p5((p) => {
 
   let img;
   let pixels = new Array(256).fill(0);
-  let currentColor;
+  let currentColor = "black";
 
   let radio;
 
