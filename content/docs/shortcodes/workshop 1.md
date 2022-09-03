@@ -1,6 +1,10 @@
-# Illusion 1
+# Illusion 1: Stepping Feet
 
-# Illusion 2
+{{< hint info >}} Click on the canvas to reveal the illusion. {{< /hint >}}
+
+{{<p5-iframe ver="1.4.2" sketch="/showcase/sketches/illusions/SteppingFeet.js" lib1="https://cdnjs.cloudflare.com/ajax/libs/p5.js/1.4.2/p5.min.js" width="405" height="258">}}
+
+# Illusion 2 
 
 # Image kernel
 
