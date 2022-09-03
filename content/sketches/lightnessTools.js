@@ -29,8 +29,10 @@ new p5((p) => {
   };
 
   let applyLightness = (mode) => {
+    // Extract the current function
     let lightness = lightnessModes[mode];
 
+    // Go through each pixel
     for (let i = 0; i < originalImg.width; i++) {
       for (let j = 0; j < originalImg.height; j++) {
         let newPixel = lightness(originalImg.get(i, j));

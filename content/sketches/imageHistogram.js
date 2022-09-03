@@ -32,10 +32,12 @@ new p5((p) => {
   };
 
   let countPixels = () => {
+    // Go through each pixel
     for (let x = 0; x < img.width; x++) {
       for (let y = 0; y < img.height; y++) {
         let pixel = img.get(x, y);
 
+        // Add 1 to the current tonal value
         let value =
           currentColor === "red"
             ? p.red(pixel)

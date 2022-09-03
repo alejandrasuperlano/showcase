@@ -35,32 +35,30 @@ new p5((p) => {
     let newG = 0.0;
     let newB = 0.0;
 
+    // Go through each kernel entry
     for (let r = 0; r < kernelSize; r++) {
       for (let c = 0; c < kernelSize; c++) {
+        // Compute the offset
         let rowOffset = 1 - r;
         let colOffset = 1 - c;
 
         let imageRow = x - rowOffset;
         let imageCol = y - colOffset;
 
-        if (
-          imageRow >= 0 &&
-          imageRow < currentImg.width &&
-          imageCol >= 0 &&
-          imageCol < currentImg.height
-        ) {
-          let currentPixel = originalImg.get(imageRow, imageCol);
+        let currentPixel = originalImg.get(imageRow, imageCol);
 
-          newR += p.red(currentPixel) * kernel[r][c];
-          newG += p.green(currentPixel) * kernel[r][c];
-          newB += p.blue(currentPixel) * kernel[r][c];
-        }
+        // Compute new value for each channel
+        newR += p.red(currentPixel) * kernel[r][c];
+        newG += p.green(currentPixel) * kernel[r][c];
+        newB += p.blue(currentPixel) * kernel[r][c];
       }
     }
 
+    // In case the new value is greater than 255
     newR = p.constrain(newR, 0, 255);
     newG = p.constrain(newG, 0, 255);
     newB = p.constrain(newB, 0, 255);
+
     return p.color(newR, newG, newB);
   };
 
