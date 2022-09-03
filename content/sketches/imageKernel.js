@@ -11,10 +11,10 @@ new p5((p) => {
       [0, 0, 0],
     ],
 
-    outline: [
-      [-1, -1, -1],
-      [-1, 8, -1],
-      [-1, -1, -1],
+    sharpen: [
+      [0, -1, 0],
+      [-1, 5, -1],
+      [0, -1, 0],
     ],
 
     emboss: [
@@ -83,7 +83,7 @@ new p5((p) => {
 
     radio = p.createRadio();
     radio.option("none", "Normal");
-    radio.option("outline", "Outline");
+    radio.option("sharpen", "Sharpen");
     radio.option("emboss", "Emboss");
     radio.option("blur", "Blur");
     radio.selected("none");
