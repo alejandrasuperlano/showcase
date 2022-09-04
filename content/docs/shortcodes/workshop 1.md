@@ -5,7 +5,7 @@ La ilusión "Stepping Feet" es un fenómeno de percepción del movimiento, donde
 Este efecto es más pronunciado cuando se fija la visión en la zona entre los recuadros.
 {{< hint info >}} Haz click en el canvas para revelar la ilusión. {{< /hint >}}
 
-{{<p5-iframe ver="1.4.2" sketch="/showcase/sketches/illusions/SteppingFeet.js" lib1="https://cdnjs.cloudflare.com/ajax/libs/p5.js/1.4.2/p5.min.js" width="405" height="258" frameBorder="0" >}}
+{{<p5-iframe ver="1.4.2" sketch="/showcase/sketches/illusions/SteppingFeet.js" lib1="https://cdnjs.cloudflare.com/ajax/libs/p5.js/1.4.2/p5.min.js" width="405" height="258">}}
 
 {{< hint warning >}}
 **¿Qué está pasando?**
@@ -16,7 +16,7 @@ El efecto contrario ocurre para el recuadro amarillo, resultando en la ilusión 
 
 Debido a lo anterior, cuando el contraste desaparece, es posible ver que los recuadros se mueven a la misma velocidad.
 
-### Source Code
+## Source Code
 
 ```js
 let x = 0;      // Posición en x de los recuadros
