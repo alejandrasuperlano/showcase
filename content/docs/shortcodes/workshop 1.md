@@ -5,7 +5,7 @@ La ilusión "Stepping Feet" es un fenómeno de percepción del movimiento, donde
 Este efecto es más pronunciado cuando se fija la visión en la zona entre los recuadros.
 {{< hint info >}} Haz click en el canvas para revelar la ilusión. {{< /hint >}}
 
-{{<p5-iframe ver="1.4.2" sketch="/showcase/sketches/illusions/SteppingFeet.js" lib1="https://cdnjs.cloudflare.com/ajax/libs/p5.js/1.4.2/p5.min.js" width="405" height="258">}}
+{{<p5-iframe ver="1.4.2" sketch="/showcase/sketches/illusions/SteppingFeet.js" lib1="https://cdnjs.cloudflare.com/ajax/libs/p5.js/1.4.2/p5.min.js" width="405" height="258" frameBorder="0" >}}
 
 {{< hint warning >}}
 **¿Qué está pasando?**
