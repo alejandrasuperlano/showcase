@@ -1,8 +1,79 @@
 # Illusion 1: Stepping Feet
 
-{{< hint info >}} Click on the canvas to reveal the illusion. {{< /hint >}}
+La ilusión "Stepping Feet" es un fenómeno de percepción del movimiento, donde se percibe que el recuadro azul y amarillo varían sus velocidades relativa de manera dramática, aunque en realidad su movimiento es constante.
+
+Este efecto es más pronunciado cuando se fija la visión en la zona entre los recuadros.
+
+{{< hint warning >}}
+**¿Qué está pasando?**
+Cuando el recuadro azul se encuentra sobre las líneas blancas, el contraste es alto, por lo cual el movimiento se percibe más rápido que su velocidad real. Por otro lado, cuando el recuadro se encuentra sobre las líneas negras, el contraste resultante es bajo y más difícil de ver.
+
+El efecto contrario ocurre para el recuadro amarillo, resultando en la ilusión de que los recuadros dan pasos alternadamente.
+{{< /hint >}}
+
+Debido a lo anterior, cuando el contraste desaparece, es posible ver que los recuadros se mueven a la misma velocidad.
+
+{{< hint info >}} Haz click en el canvas para revelar la ilusión. {{< /hint >}}
 
 {{<p5-iframe ver="1.4.2" sketch="/showcase/sketches/illusions/SteppingFeet.js" lib1="https://cdnjs.cloudflare.com/ajax/libs/p5.js/1.4.2/p5.min.js" width="405" height="258">}}
+
+```js
+let x = 0;      // Posición en x de los recuadros
+let vx = 0.5;   // Velocidad de desplazamiento
+let w = 50;     // Ancho de los recuadros
+
+function setup() {
+  createCanvas(400, 250);
+  colorMode(RGB, 255);
+}
+
+function draw() {
+  // De acuerdo al mouseIsPressed se pinta un fondo con alto o bajo contraste
+  if (mouseIsPressed ){
+    lowContrastBackground();
+  }else{
+    highContrastBackground();
+  }
+  
+  // Actualización de la velocidad cuando llega al limite del canvas
+  if (x+vx > width-w || x+vx < 0){vx*=-1;}
+  
+  // Actualización de la posición en cada iteración
+  x+=vx;
+  
+  noStroke();
+  
+  // Recuadro amarillo
+  fill(color(244, 244, 0));
+  rect(x, 80, w, 20);
+  
+  // Recuadro azul
+  fill(color(4, 4, 156));
+  rect(x, 160, w, 20);
+}
+
+function highContrastBackground(){
+  for (let i = 0; i<750; i+=9){
+    if (i%2==0){
+      fill(242, 242, 242, 255)
+    }else{
+      fill(12, 12, 12, 255)
+    }
+    rect(i, 0, 9, 400);
+  }
+}
+
+function lowContrastBackground(){
+  for (let i = 0; i<750; i+=9){
+    if (i%2==0){
+      fill(140)
+    }else{
+      fill(116)
+    }
+    rect(i, 0, 9, 400);
+  }
+}
+```
 
 # Illusion 2 : Stereokinetic Effect (SKE)
 
