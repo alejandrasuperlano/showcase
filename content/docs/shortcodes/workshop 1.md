@@ -4,7 +4,87 @@
 
 {{<p5-iframe ver="1.4.2" sketch="/showcase/sketches/illusions/SteppingFeet.js" lib1="https://cdnjs.cloudflare.com/ajax/libs/p5.js/1.4.2/p5.min.js" width="405" height="258">}}
 
-# Illusion 2 
+# Illusion 2 : Stereokinetic Effect (SKE)
+
+La rotación de las figuras adecuadas puede crear una ilusión tridimensional. Un ejemplo que permite demostarlo es el <b>efecto estereocinético</b> el cual una ilusión de profundidad. Puede pasar algún tiempo hasta que surja la percepción. A continuación, podemos observar un ejemplo de lo mencionado anteriormente: <br/>
+
+{{< hint info >}} Click on the canvas change the effect. {{< /hint >}}
+
+{{<p5-iframe ver="1.4.2" sketch="/showcase/sketches/illusions/StereokineticEffect.js" lib1="https://cdnjs.cloudflare.com/ajax/libs/p5.js/1.4.2/p5.min.js" width="404" height="408">}}
+
+{{< hint info >}}
+**¿Qué es el efecto estereocinético?**  
+El efecto estereocinético (SKE) se ha definido y estudiado mediante <b>patrones circulares anidados</b> que giran en una plataforma giratoria. Los círculos deben parecer que no giran, lo que a su vez da lugar a que parecen trasladarse unos a otros.
+{{< /hint >}}
+
+Se ha comprobado que las visualizaciones consistentes en simples traslaciones evocan impresiones de <b>profundidad sólidas</b>. 
+
+{{< hint warning >}}
+<b>Musatti (1924)</b> publicó el primer informe sobre los fenómenos estereocinéticos y atribuyó su descubrimiento y denominación a su maestro profesor, Vittorio Benussi
+{{< /hint >}}
+
+
+Como se observa en la ilusión, un conjunto de anillos concéntricos gira como si estuviera en una plataforma giratoria. Un conjunto más pequeño de anillos en el centro gira alrededor de un eje diferente, lo que puede dar la ilusión de que estos anillos más pequeños tienen <b>profundidad espacial</b>.
+
+<img src="/showcase/sketches/illusions/stereokineticEffect.PNG">
+
+<b>Imagen 1</b> : Efecto estereocinético (SKE) tradicional girada 90°.
+
+A continuación se muestran las funciónes principales las cuales permitieron crear esta ilusion:
+```js
+class Circle{
+  constructor(r, coordR, color){
+    this.r = r;
+    this.coordR = coordR;
+    this.color = color;
+  }
+ 
+  render(centerX, centerY, angle){
+    const coord = polarCoordinates(this.coordR, angle);
+    const x = coord.x;
+    const y = coord.y;
+   
+    noStroke();
+    fill(this.color);
+   
+    circle(centerX+x, centerY+y, this.r);
+  }
+}
+function polarCoordinates(r, angle){
+  let x = 0; y = 0;
+  x = r*cos(angle);
+  y = r*sin(angle);
+ 
+  return {x, y};
+}
+
+function renderingCirles(){
+    for (let i = 0; i<circles.length; i++){
+        circles[i].render(centerX, centerY, angle);
+    }
+};
+```
+## Aplicaciones
+
+Los candidatos más lógicos son los sistemas que requieren movimiento en tiempo real pero en los que las limitaciones de coste, tamaño o fiabilidad impiden el uso de motores de geometría 3D.
+
+{{< hint info >}}
+<b>Mapas de contorno en movimiento</b> : Los mapas de contorno se utilizan en la navegación por la siesta, 
+La tripulación correlaciona las características del terreno vistas fuera de la cabina con las características representadas en el mapa para lograr y mantener la orientación geográfica.
+{{< /hint >}}
+<img src="/showcase/sketches/illusions/application.PNG">
+
+<b>Imagen 2</b> : Una línea de elevación constante representada en una superficie y en un mapa de contorno.
+
+{{< hint info >}}
+<b>Pantalla de control del tráfico aéreo</b>: Al enrutar y poner en cola el tráfico aéreo, los controladores necesitan recuperar las relaciones espaciales en 3D entre las aeronaves.
+
+Se han desarrollado y evaluado varios formatos de visualización alternativos que utilizan señales de perspectiva 
+{{< /hint >}}
+<img src="/showcase/sketches/illusions/airTrafficControlDisplay.jpg">
+
+<b>Imagen 3</b> : Pantalla de control de tráfico aereo.
+
 
 # Image kernel
 
