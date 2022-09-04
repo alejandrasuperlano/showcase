@@ -1,4 +1,15 @@
-# Image kernel
+# Workshop 1
+
+## Enunciado
+
+Implementar una aplicación web de procesamiento de imagenes que soporte varios kernels y además:
+
+- Visualización de histograma de la imagen
+- Diferentes herramientes de luminosidad
+
+## Marco teórico
+
+### Kernel
 
 Un kernel o mascara es una matriz usada para aplicar algun tipo de efecto como difuminado, detección de bordes
 , sobre una imagen. Eso se logra realizando una convolución entre el kernel y la imagen.
@@ -39,6 +50,55 @@ A modo de ejemplo, se escogieron los siguientes kernels para mostrar su aplicaci
 {{< /katex >}}
 {{< /details >}}
 
+### Histograma
+
+Un histograma de una imagen consiste en la representación gráfica de la distribución tonal de la imagen, trazando el número de píxeles de cada canal.  
+En el eje horizontal representa las variaciones tonales, mientras que el vertical, representa la cantidad de píxeles en un tono particular.
+
+{{< hint info >}}
+**¿Cómo interpretar un histograma?**
+
+El lado izquierdo del eje horizontal representa las áreas oscuras y el derecho representa las áreas iluminadas.  
+Por ejemplo, para una imagen oscura, esta tendrá la mayoría de puntos dibujados en el lado izquiero del histograma.
+{{< /hint >}}
+
+### Herramientas de luminosidad
+
+La luminosidad es la percepción visual de la luminancia de un objeto. En colorimetría, es una predicción de que tan iluminado aparecerá un color para un determinado observador.
+{{< hint info >}}
+**¿Qué es la luminancia?**
+Es la médida de intensidad lumínica por unidad de área de la luz viajando en una determinada dirección. Es decir, describe la cantidad de luz que pasa a través, es emitida o reflejada de un área particular.  
+Existen varias formas de calcular la luminosidad de un color. A modo de ejemplo, se mostrarán las siguientes 4:
+{{< /hint >}}
+
+{{< details "Media aritmética" closed >}}
+{{< katex display>}}
+I=\frac{R+G+B}{3}
+{{< /katex >}}
+{{< /details >}}
+
+{{< details "HSV" closed >}}
+{{< katex display>}}
+V=max(R,G,B)
+{{< /katex >}}
+{{< /details >}}
+
+{{< details "HSL" closed >}}
+{{< katex display>}}
+L=\frac{max(R,G,B)+min(R,G,B)}{2}
+{{< /katex >}}
+{{< /details >}}
+
+{{< details "Luma" closed >}}
+{{< katex display>}}
+Y=0.2126\cdot R+ 0.7152\cdot G+0.0722\cdot B
+{{< /katex >}}
+{{< /details >}}
+
+## Solución y resultados
+
+### Kernel
+
 {{< p5-div sketch="/showcase/sketches/imageKernel.js" >}}
 A continuación se muestra la función principal, la cual es la encargada de calcula el nuevo valor de cada píxel:
 
@@ -76,17 +136,7 @@ let applyKernelToPixel = (x, y, kernel, kernelSize) => {
 };
 ```
 
-## Image histogram
-
-Un histograma de una imagen consiste en la representación gráfica de la distribución tonal de la imagen, trazando el número de píxeles de cada canal.  
-En el eje horizontal representa las variaciones tonales, mientras que el vertical, representa la cantidad de píxeles en un tono particular.
-
-{{< hint info >}}
-**¿Cómo interpretar un histograma?**
-
-El lado izquierdo del eje horizontal representa las áreas oscuras y el derecho representa las áreas iluminadas.  
-Por ejemplo, para una imagen oscura, esta tendrá la mayoría de puntos dibujados en el lado izquiero del histograma.
-{{< /hint >}}
+### Histograma
 
 {{< p5-div sketch="/showcase/sketches/imageHistogram.js" >}}
 
@@ -112,38 +162,7 @@ let countPixels = () => {
 };
 ```
 
-## Lightness tools
-
-La luminosidad es la percepción visual de la luminancia de un objeto. En colorimetría, es una predicción de que tan iluminado aparecerá un color para un determinado observador.
-{{< hint info >}}
-**¿Qué es la luminancia?**
-Es la médida de intensidad lumínica por unidad de área de la luz viajando en una determinada dirección. Es decir, describe la cantidad de luz que pasa a través, es emitida o reflejada de un área particular.  
-Existen varias formas de calcular la luminosidad de un color. A modo de ejemplo, se mostrarán las siguientes 4:
-{{< /hint >}}
-
-{{< details "Media aritmética" closed >}}
-{{< katex display>}}
-I=\frac{R+G+B}{3}
-{{< /katex >}}
-{{< /details >}}
-
-{{< details "HSV" closed >}}
-{{< katex display>}}
-V=max(R,G,B)
-{{< /katex >}}
-{{< /details >}}
-
-{{< details "HSL" closed >}}
-{{< katex display>}}
-L=\frac{max(R,G,B)+min(R,G,B)}{2}
-{{< /katex >}}
-{{< /details >}}
-
-{{< details "Luma" closed >}}
-{{< katex display>}}
-Y=0.2126\cdot R+ 0.7152\cdot G+0.0722\cdot B
-{{< /katex >}}
-{{< /details >}}
+### Herramientas de luminosidad
 
 {{< p5-div sketch="/showcase/sketches/lightnessTools.js" >}}
 
@@ -185,3 +204,8 @@ let applyLightness = (mode) => {
   }
 };
 ```
+
+## Conclusiones
+
+- La aplicación de una convolución usando un kernel a una imagen se vería en extremo beneficiada por la paralelización de dicha aplicación
+- Se deben considerar todas las formas de calcular la luminosidad de una imagen a la hora de pasar la imagen a escala de grises
