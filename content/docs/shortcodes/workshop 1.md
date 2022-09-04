@@ -345,3 +345,16 @@ let applyLightness = (mode) => {
   }
 };
 ```
+# Referencias
+
+{{< hint danger >}}
+
+Stereokinetic Effect.Neurobs.
+https://www.neurobs.com/manager/content/docs/psychlab101_experiments/Stereokinetic%20Effect/description.html
+
+Proffitt, D. R., Rock, I., Hecht, H., & Schubert, J. (1992). Stereokinetic effect and its relation to the kinetic depth effect. Journal of Experimental Psychology: Human Perception 
+and Performance, 18(1), 3–21. https://doi.org/10.1037/0096-1523.18.1.3
+
+G. (2018, 8 noviembre). ¿Qué son las isolíneas, contornos o curvas de nivel? El blog de franz. https://acolita.com/que-son-las-isolineas-contornos-o-curvas-de-nivel/
+
+{{< /hint >}}
