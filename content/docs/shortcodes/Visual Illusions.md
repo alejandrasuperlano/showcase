@@ -185,7 +185,7 @@ Se han desarrollado y evaluado varios formatos de visualización alternativos qu
 
 ## Conclusiones
 
-* Es util estudiar algunas ilusiones opticas para conocer los "Visual Artifacts" que existen, de modo que se eviten o apliquen de manera estrategica cuando se pertienente, para lograr algun objetivo visual.
+* Es útil estudiar algunas ilusiones ópticas para conocer los “Visual Artifacts” que existen, de modo que se eviten o apliquen de manera estratégica cuando sea pertinente, para lograr algún objetivo visual.
 
 # Referencias
 
