@@ -1,4 +1,14 @@
-# Illusion 1: Stepping Feet
+# Visual Illusions
+
+{{< hint danger >}}
+<b> Workshop </b>
+
+Estudie, implemente y discuta posibles aplicaciones de algunos fenómenos visuales e ilusiones ópticas conocidas.
+
+{{< /hint >}}
+
+
+## Illusion 1: Stepping Feet
 
 La ilusión "Stepping Feet" es un fenómeno de percepción del movimiento, donde se percibe que el recuadro azul y amarillo varían sus velocidades relativa de manera dramática, aunque en realidad su movimiento es constante.
 
@@ -78,18 +88,24 @@ function lowContrastBackground() {
 }
 ```
 
-# Illusion 2 : Stereokinetic Effect (SKE)
+## Illusion 2 : Stereokinetic Effect (SKE)
 
-La rotación de las figuras adecuadas puede crear una ilusión tridimensional. Un ejemplo que permite demostarlo es el <b>efecto estereocinético</b> el cual una ilusión de profundidad. Puede pasar algún tiempo hasta que surja la percepción. A continuación, podemos observar un ejemplo de lo mencionado anteriormente: <br/>
+## Marco Teorico
 
-{{< hint info >}} Click on the canvas change the effect. {{< /hint >}}
-
-{{<p5-iframe ver="1.4.2" sketch="/showcase/sketches/illusions/StereokineticEffect.js" lib1="https://cdnjs.cloudflare.com/ajax/libs/p5.js/1.4.2/p5.min.js" width="404" height="408">}}
+La rotación de las figuras adecuadas puede crear una ilusión tridimensional. Un ejemplo que permite demostarlo es el <b>efecto estereocinético</b> el cual una ilusión de profundidad. Puede pasar algún tiempo hasta que surja la percepción.
 
 {{< hint info >}}
 **¿Qué es el efecto estereocinético?**  
 El efecto estereocinético (SKE) se ha definido y estudiado mediante <b>patrones circulares anidados</b> que giran en una plataforma giratoria. Los círculos deben parecer que no giran, lo que a su vez da lugar a que parecen trasladarse unos a otros.
 {{< /hint >}}
+
+## Solucion y resultados
+
+A continuación, podemos observar un ejemplo de lo mencionado anteriormente: <br/>
+
+{{< hint info >}} Click on the canvas change the effect. {{< /hint >}}
+
+{{<p5-iframe ver="1.4.2" sketch="/showcase/sketches/illusions/StereokineticEffect.js" lib1="https://cdnjs.cloudflare.com/ajax/libs/p5.js/1.4.2/p5.min.js" width="404" height="408">}}
 
 Se ha comprobado que las visualizaciones consistentes en simples traslaciones evocan impresiones de <b>profundidad sólidas</b>.
 
@@ -102,6 +118,8 @@ Como se observa en la ilusión, un conjunto de anillos concéntricos gira como s
 <img src="/showcase/sketches/illusions/stereokineticEffect.PNG">
 
 <b>Imagen 1</b> : Efecto estereocinético (SKE) tradicional girada 90°.
+
+## Source Code
 
 A continuación se muestran las funciónes principales las cuales permitieron crear esta ilusion:
 
@@ -160,6 +178,8 @@ Se han desarrollado y evaluado varios formatos de visualización alternativos qu
 <img src="/showcase/sketches/illusions/airTrafficControlDisplay.jpg">
 
 <b>Imagen 3</b> : Pantalla de control de tráfico aereo.
+
+## Conclusiones
 
 # Referencias
 

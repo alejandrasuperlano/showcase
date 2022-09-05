@@ -1,11 +1,14 @@
-# Workshop 1
+#  Visual Masking
 
-## Enunciado
+{{< hint danger >}}
+<b> Workshop </b>
 
 Implementar una aplicación web de procesamiento de imagenes que soporte varios kernels y además:
 
 - Visualización de histograma de la imagen
 - Diferentes herramientes de luminosidad
+
+{{< /hint >}}
 
 ## Marco teórico
 
