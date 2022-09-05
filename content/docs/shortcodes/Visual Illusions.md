@@ -1,4 +1,4 @@
-# Visual Illusions
+# Visual Illusions 👁
 
 {{< hint danger >}}
 <b> Workshop </b>
@@ -8,7 +8,7 @@ Estudie, implemente y discuta posibles aplicaciones de algunos fenómenos visual
 {{< /hint >}}
 
 
-## Illusion 1: Stepping Feet
+## Illusion 1: Stepping Feet 👣
 
 ## Marco Teorico
 
@@ -26,7 +26,7 @@ Debido a lo anterior, cuando el contraste desaparece, es posible ver que los rec
 ## Solucion y resultados
 
 Este efecto es más pronunciado cuando se fija la visión en la zona entre los recuadros.
-{{< hint info >}} Haz click en el canvas para revelar la ilusión. {{< /hint >}}
+{{< hint info >}} ‼ Haz click en el canvas para revelar la ilusión. {{< /hint >}}
 
 {{<p5-iframe ver="1.4.2" sketch="/showcase/sketches/illusions/SteppingFeet.js" lib1="https://cdnjs.cloudflare.com/ajax/libs/p5.js/1.4.2/p5.min.js" width="405" height="258">}}
 
@@ -92,7 +92,7 @@ function lowContrastBackground() {
 }
 ```
 
-## Illusion 2 : Stereokinetic Effect (SKE)
+## Illusion 2 : Stereokinetic Effect (SKE) 🧿
 
 ## Marco Teorico
 

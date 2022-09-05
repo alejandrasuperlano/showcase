@@ -1,4 +1,4 @@
-#  Visual Masking
+#  Visual Masking 💡
 
 {{< hint danger >}}
 <b> Workshop </b>
