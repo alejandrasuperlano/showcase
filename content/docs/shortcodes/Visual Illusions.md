@@ -10,12 +10,9 @@ Estudie, implemente y discuta posibles aplicaciones de algunos fenómenos visual
 
 ## Illusion 1: Stepping Feet
 
+## Marco Teorico
+
 La ilusión "Stepping Feet" es un fenómeno de percepción del movimiento, donde se percibe que el recuadro azul y amarillo varían sus velocidades relativa de manera dramática, aunque en realidad su movimiento es constante.
-
-Este efecto es más pronunciado cuando se fija la visión en la zona entre los recuadros.
-{{< hint info >}} Haz click en el canvas para revelar la ilusión. {{< /hint >}}
-
-{{<p5-iframe ver="1.4.2" sketch="/showcase/sketches/illusions/SteppingFeet.js" lib1="https://cdnjs.cloudflare.com/ajax/libs/p5.js/1.4.2/p5.min.js" width="405" height="258">}}
 
 {{< hint warning >}}
 **¿Qué está pasando?**
@@ -25,6 +22,13 @@ El efecto contrario ocurre para el recuadro amarillo, resultando en la ilusión 
 {{< /hint >}}
 
 Debido a lo anterior, cuando el contraste desaparece, es posible ver que los recuadros se mueven a la misma velocidad.
+
+## Solucion y resultados
+
+Este efecto es más pronunciado cuando se fija la visión en la zona entre los recuadros.
+{{< hint info >}} Haz click en el canvas para revelar la ilusión. {{< /hint >}}
+
+{{<p5-iframe ver="1.4.2" sketch="/showcase/sketches/illusions/SteppingFeet.js" lib1="https://cdnjs.cloudflare.com/ajax/libs/p5.js/1.4.2/p5.min.js" width="405" height="258">}}
 
 ## Source Code
 
