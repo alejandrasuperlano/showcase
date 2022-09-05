@@ -103,7 +103,7 @@ El efecto estereocinético (SKE) se ha definido y estudiado mediante <b>patrones
 
 A continuación, podemos observar un ejemplo de lo mencionado anteriormente: <br/>
 
-{{< hint info >}} Click on the canvas change the effect. {{< /hint >}}
+{{< hint info >}} Manten el click en el canvas para ver otro tipo de efecto !. {{< /hint >}}
 
 {{<p5-iframe ver="1.4.2" sketch="/showcase/sketches/illusions/StereokineticEffect.js" lib1="https://cdnjs.cloudflare.com/ajax/libs/p5.js/1.4.2/p5.min.js" width="404" height="408">}}
 
