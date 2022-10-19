@@ -64,8 +64,6 @@ El sistema de coordenadas esféricas se basa en la misma idea que las coordenada
 
 {{< details "Normalizer.js" closed >}}
 
-````js
-
 ```js
 class Normalizer {
   constructor(audio) {
@@ -138,7 +136,7 @@ class Normalizer {
     scaleLogToLinear(){ (...) }
     togglePlay(){(...)}
 }
-````
+```
 
 {{< /details >}}
 
