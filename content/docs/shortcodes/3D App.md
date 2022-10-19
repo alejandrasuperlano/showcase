@@ -144,6 +144,10 @@ La forma en que nuestros sentidos se mezclan cuando experimentamos música nunca
 
 {{< hint danger >}}
 
+Wikipedia contributors. (2022, 11 octubre). Fourier transform. Wikipedia. Recuperado de https://en.m.wikipedia.org/wiki/Fourier_transform
+
+Wikipedia contributors. (2022a, octubre 8). Fast Fourier transform. Wikipedia. Recuperado de https://en.m.wikipedia.org/wiki/Fast_Fourier_transform
+
 PromocionMusical.es. (2020, 15 enero). Qué es la Visualización de Música: Origen, Evolución y Ejemplos. Recuperado de https://promocionmusical.es/visualizacion-musica
 
 Speigato.¿Qué es la visualización de música?. Recuperado de https://spiegato.com/es/que-es-la-visualizacion-de-musica
