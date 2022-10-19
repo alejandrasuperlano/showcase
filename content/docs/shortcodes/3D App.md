@@ -1,4 +1,4 @@
-# 3D APP : 3D audio analyzer🎶
+# 3D APP : 3D Audio Visualizer 🎶
 
 {{< hint danger >}}
 <b> Workshop </b>
@@ -31,16 +31,16 @@ Es usada para transformar señales entre el dominio del tiempo o espacio al domi
 {{< /hint >}}
 
 Se define matemáticamente así: <br>
-<img src="/showcase/sketches/3d_app/FT Eq.png" width="250" style="margin: auto; display: block;">
+<img src="/showcase/sketches/3d_app/FT Eq.png" width="250" style="margin: auto; display: block; margin: 2rem;">
 
 A continuación, se muestra una comparación del dominio del tiempo y de la frecuencia de una onda sinusoidal.  
-<img src="/showcase/sketches/3d_app/Fourier Transform.png" style="margin: auto; display: block;">
+<img src="/showcase/sketches/3d_app/Fourier Transform.png" style="margin: auto; display: block; margin: 2rem;">
 
 {{< hint info >}}
 
 La Transformada de Fourier tiene su versión discreta que facilita su implementación computacional, la cual está definida así:
 Transformada Discreta de Fourier (DFT):  
-<img src="/showcase/sketches/3d_app/DFT Eq.png" width="350" style="margin: auto; display: block;">
+<img src="/showcase/sketches/3d_app/DFT Eq.png" width="350" style="margin: auto; display: block; margin: 2rem;">
 
 {{< /hint >}}
 
@@ -51,7 +51,7 @@ La mayoría de los analizadores de FFT permiten la transformación de 512, 1024,
 ## Source Code
 ### Coordenadas esféricas
 
-<img src="/showcase/sketches/3d_app/coordenadasEsfericas.PNG" width="400" style="margin: auto; display: block;">
+<img src="/showcase/sketches/3d_app/coordenadasEsfericas.PNG" width="400" style="margin: auto; display: block; margin: 2rem;">
 
 {{< hint info >}}
 El sistema de coordenadas esféricas se basa en la misma idea que las coordenadas polares y se utiliza para determinar la posición espacial de un punto mediante una distancia y dos ángulos.
@@ -63,9 +63,8 @@ El sistema de coordenadas esféricas se basa en la misma idea que las coordenada
 
 
 {{< details "Normalizer.js" closed >}}
+
 ```js
-
-
 class Normalizer{
     constructor(audio){
         // Singleton Pattern
@@ -107,6 +106,7 @@ class Normalizer{
     togglePlay(){(...)}
 }
 ```
+
 {{< /details >}}
 
 ## Solución y resultados
