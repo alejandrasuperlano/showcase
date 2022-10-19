@@ -62,7 +62,7 @@ El sistema de coordenadas esféricas se basa en la misma idea que las coordenada
 {{<p5-iframe ver="1.4.2" sketch="/showcase/sketches/3d_app/SphericalCoordinates.js" lib1="https://cdnjs.cloudflare.com/ajax/libs/p5.js/1.4.2/p5.min.js" width="410" height="530" >}}
 </div>
 
-## Source Code: Normalizer.js
+## Source Code
 
 {{< details "Normalizer.js" closed >}}
 
@@ -113,7 +113,7 @@ class Normalizer {
 
 {{< /details >}}
 
-## Solución y resultados
+## Solución y resultados 🎈
 
 <iframe src="https://saacostam.github.io/3d-music-visualizer/" height="1100" width="700" style="border:none;"></iframe>
 
