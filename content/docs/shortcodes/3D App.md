@@ -1,9 +1,9 @@
-# Analizador en 3D de audio
+# 3D APP : 3D audio analyzer🎶
 
 {{< hint danger >}}
 <b> Workshop </b>
 
-Implemente una aplicación 3D
+Implement a 3d webgl application. The p5.treegl or any other libraries may be used
 {{< /hint >}}
 
 ## Marco teórico
@@ -49,6 +49,17 @@ Por último, existe un algoritmo que reduce la complejidad de la implementación
 La mayoría de los analizadores de FFT permiten la transformación de 512, 1024, 2048 o 4096 muestras.
 
 ## Source Code
+### Coordenadas esféricas
+
+<img src="/showcase/sketches/3d_app/coordenadasEsfericas.PNG" width="400">
+
+{{< hint info >}}
+El sistema de coordenadas esféricas se basa en la misma idea que las coordenadas polares y se utiliza para determinar la posición espacial de un punto mediante una distancia y dos ángulos.
+{{< /hint >}}
+
+
+{{<p5-iframe ver="1.4.2" sketch="/showcase/sketches/3d_app/SphericalCoordinates.js" lib1="https://cdnjs.cloudflare.com/ajax/libs/p5.js/1.4.2/p5.min.js" width="400" height="400">}}
+## Source Code: Normalizer.js
 
 
 {{< details "Normalizer.js" closed >}}
@@ -128,6 +139,40 @@ class Normalizer{
 
 <iframe src="https://saacostam.github.io/3d-music-visualizer/" height="1100" width="700" style="border:none;"></iframe>
 
+## Aplicaciones
+
+<b> La visualización de música </b> es el proceso de interpretar el sonido con imágenes. Tiene la capacidad de mapear las cualidades de una grabación o composición con gráficos mediante la interpretación de señales digitales o electrónicas. El método utilizado para traducir aspectos de la música en cualidades visuales determina el aspecto y la respuesta de la visualización.
+
+{{< hint info >}}  
+Existen miles de visualizadores de música diferentes. Cada uno tiene una interpretación diferente de cómo se ve el sonido.
+{{< /hint >}}
+
+<img src="/showcase/sketches/3d_app/visualizacion-musica.png" width="600">
+
+La visualización de música es un desarrollo que se puede decir es moderno, pero sus raíces se remontan a siglos atrás. Goethe e Isaac Newton propusieron teorías sobre cómo el sonido y la luz comparten frecuencias comunes.
+
+El sonido y el color son fuente de inspiracion especialmente importante en general para los músicos. Por otro lado las cualidades tímbricas del sonido están fuertemente asociadas con el color y la textura e incluso las notas individuales tienen fuertes conexiones con el color para algunos músicos.
+
+{{< hint warning >}}
+La forma en que nuestros sentidos se mezclan cuando experimentamos música nunca se explicará por completo. Ese misterio es parte de lo que atrae a las personas a nuevas formas de visualizar la música.
+{{< /hint >}}
+
+
 ## Conclusiones
 
-- Esta aplicación es una manera interactiva de "ver" el sonido
+- Esta aplicación es una manera interactiva de "ver" el sonido.
+- Una característica importante de la visualización de música es que las visualizaciones son únicas.
+- Cuando se trata de representar música visualmente, sabemos que hay más factores involucrados que las cualidades medibles de una señal.
+- Esta visualización de música nos permite evidenciar lo que es posible cuando combinamos sonido y visión.
+
+# Referencias
+
+{{< hint danger >}}
+
+PromocionMusical.es. (2020, 15 enero). Qué es la Visualización de Música: Origen, Evolución y Ejemplos. Recuperado de https://promocionmusical.es/visualizacion-musica
+
+Speigato.¿Qué es la visualización de música?. Recuperado de https://spiegato.com/es/que-es-la-visualizacion-de-musica
+
+Kazuki Umeda. (2021, 15 julio) What We can Create w/ p5js & Spherical Coordinates.Recuperado de https://www.youtube.com/watch?v=SGHWZz5Mrsw&ab_channel=KazukiUmeda
+{{< /hint >}}
+
