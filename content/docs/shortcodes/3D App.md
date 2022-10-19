@@ -63,7 +63,9 @@ El sistema de coordenadas esféricas se basa en la misma idea que las coordenada
 
 
 {{< details "Normalizer.js" closed >}}
-{{< katex display>}}
+
+
+<!-- {{< katex display>}} -->
 ```js
 class Normalizer{
     constructor(audio){
@@ -132,7 +134,7 @@ class Normalizer{
     }
 }
 ```
-{{< /katex >}}
+<!-- {{< /katex >}} -->
 {{< /details >}}
 
 ## Solución y resultados
