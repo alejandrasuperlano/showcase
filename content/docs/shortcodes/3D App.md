@@ -58,6 +58,76 @@ El sistema de coordenadas esféricas se basa en la misma idea que las coordenada
 
 
 {{<p5-iframe ver="1.4.2" sketch="/showcase/sketches/3d_app/SphericalCoordinates.js" lib1="https://cdnjs.cloudflare.com/ajax/libs/p5.js/1.4.2/p5.min.js" width="400" height="400">}}
+## Source Code: Normalizer.js
+
+```js
+class Normalizer{
+    constructor(audio){
+        // Singleton Pattern
+        if (typeof Normalizer.instance === 'object'){
+            return Normalizer.instance;
+        }
+        
+        // Audio Settings
+        this.audio = audio;
+        this.audio.crossOrigin = "anonymous";
+        this.audioCtx = new (window.AudioContext || window.webkitAudioContext)();
+        this.audioSource = this.audioCtx.createMediaElementSource(this.audio);
+        this.analyser = this.audioCtx.createAnalyser();
+        this.audioSource.connect(this.analyser);
+        this.analyser.connect(this.audioCtx.destination);
+        this.analyser.fftSize = 1024;                           // FFT (Transformada Rápida de Fourier)
+        this.bufferLength = this.analyser.frequencyBinCount;
+        
+        // Config
+        this.scaleType = 'linear';
+        this.playing = false;
+        
+        Normalizer.instance = this;
+        return this
+    }
+    
+    setLinearScale(){this.scaleType = 'linear';}
+    setLogScale(){this.scaleType = 'log';}
+    
+    scaleLogToLinear(){
+        let newDataArray = [];
+        let pow2 = 1;
+        
+        while (pow2 <= 256){
+            const initIndex = pow2 - 1;
+            const finalIndex = (2*pow2) - 1;
+            
+            let sum = 0;
+            for (let i = initIndex; i<finalIndex; i++){
+            sum += this.dataArray[i];
+            }
+            
+            const n = finalIndex - initIndex;
+            newDataArray.push( sum/n );
+            
+            pow2 *= 2;
+        }
+        
+        this.dataArray = new Uint8Array(newDataArray);
+    }
+      
+    getData(){
+        this.dataArray = new Uint8Array(this.bufferLength);
+        this.analyser.getByteFrequencyData(this.dataArray);
+        
+        if (this.scaleType == 'log'){ this.scaleLogToLinear();}
+        
+        return this.dataArray;
+    }
+
+    togglePlay(){
+        if (this.audio.paused){ this.audio.play();
+        }else{ this.audio.pause();}
+        return !(this.audio.paused)
+    }
+}
+```
 
 ## Solución y resultados
 
