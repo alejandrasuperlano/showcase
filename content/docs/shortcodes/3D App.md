@@ -49,6 +49,7 @@ Por último, existe un algoritmo que reduce la complejidad de la implementación
 La mayoría de los analizadores de FFT permiten la transformación de 512, 1024, 2048 o 4096 muestras.
 
 ## Source Code
+
 ### Coordenadas esféricas
 
 <img src="/showcase/sketches/3d_app/coordenadasEsfericas.PNG" width="400" style="margin: auto; display: block; margin: 2rem;">
@@ -57,48 +58,78 @@ La mayoría de los analizadores de FFT permiten la transformación de 512, 1024,
 El sistema de coordenadas esféricas se basa en la misma idea que las coordenadas polares y se utiliza para determinar la posición espacial de un punto mediante una distancia y dos ángulos.
 {{< /hint >}}
 
+{{<p5-iframe ver="1.4.2" sketch="/showcase/sketches/3d_app/SphericalCoordinates.js" lib1="https://cdnjs.cloudflare.com/ajax/libs/p5.js/1.4.2/p5.min.js" width="405" height="520">}}
 
-{{<p5-iframe ver="1.4.2" sketch="/showcase/sketches/3d_app/SphericalCoordinates.js" lib1="https://cdnjs.cloudflare.com/ajax/libs/p5.js/1.4.2/p5.min.js" width="400" height="400">}}
 ## Source Code: Normalizer.js
-
 
 {{< details "Normalizer.js" closed >}}
 
 ```js
-class Normalizer{
-    constructor(audio){
-        // Singleton Pattern
-        if (typeof Normalizer.instance === 'object'){
-            return Normalizer.instance;
-        }
-        
-        // Audio Settings
-        this.audio = audio;
-        this.audio.crossOrigin = "anonymous";
-        this.audioCtx = new (window.AudioContext || window.webkitAudioContext)();
-        this.audioSource = this.audioCtx.createMediaElementSource(this.audio);
-        this.analyser = this.audioCtx.createAnalyser();
-        this.audioSource.connect(this.analyser);
-        this.analyser.connect(this.audioCtx.destination);
-        this.analyser.fftSize = 1024;                           // FFT (Transformada Rápida de Fourier)
-        this.bufferLength = this.analyser.frequencyBinCount;
-        
-        // Config
-        this.scaleType = 'linear';
-        this.playing = false;
-        
-        Normalizer.instance = this;
-        return this
+class Normalizer {
+  constructor(audio) {
+    // Singleton Pattern
+    if (typeof Normalizer.instance === "object") {
+      return Normalizer.instance;
     }
-      
-    getData(){
-        this.dataArray = new Uint8Array(this.bufferLength);
-        this.analyser.getByteFrequencyData(this.dataArray);
-        
-        if (this.scaleType == 'log'){ this.scaleLogToLinear();}
-        
-        return this.dataArray;
+
+    // Audio Settings
+    this.audio = audio;
+    this.audio.crossOrigin = "anonymous";
+    this.audioCtx = new (window.AudioContext || window.webkitAudioContext)();
+    this.audioSource = this.audioCtx.createMediaElementSource(this.audio);
+    this.analyser = this.audioCtx.createAnalyser();
+    this.audioSource.connect(this.analyser);
+    this.analyser.connect(this.audioCtx.destination);
+    this.analyser.fftSize = 1024; // FFT (Transformada Rápida de Fourier)
+    this.bufferLength = this.analyser.frequencyBinCount;
+
+    // Config
+    this.scaleType = "linear";
+    this.playing = false;
+
+    Normalizer.instance = this;
+    return this;
+  }
+
+  setLinearScale() {
+    this.scaleType = "linear";
+  }
+  setLogScale() {
+    this.scaleType = "log";
+  }
+
+  scaleLogToLinear() {
+    let newDataArray = [];
+    let pow2 = 1;
+
+    while (pow2 <= 256) {
+      const initIndex = pow2 - 1;
+      const finalIndex = 2 * pow2 - 1;
+
+      let sum = 0;
+      for (let i = initIndex; i < finalIndex; i++) {
+        sum += this.dataArray[i];
+      }
+
+      const n = finalIndex - initIndex;
+      newDataArray.push(sum / n);
+
+      pow2 *= 2;
     }
+
+    this.dataArray = new Uint8Array(newDataArray);
+  }
+
+  getData() {
+    this.dataArray = new Uint8Array(this.bufferLength);
+    this.analyser.getByteFrequencyData(this.dataArray);
+
+    if (this.scaleType == "log") {
+      this.scaleLogToLinear();
+    }
+
+    return this.dataArray;
+  }
 
     setLogScale(){this.scaleType = 'log';}
     setLinearScale(){this.scaleType = 'linear';}
@@ -131,7 +162,6 @@ El sonido y el color son fuente de inspiracion especialmente importante en gener
 La forma en que nuestros sentidos se mezclan cuando experimentamos música nunca se explicará por completo. Ese misterio es parte de lo que atrae a las personas a nuevas formas de visualizar la música.
 {{< /hint >}}
 
-
 ## Conclusiones
 
 - Esta aplicación es una manera interactiva de "ver" el sonido.
@@ -149,4 +179,3 @@ Speigato.¿Qué es la visualización de música?. Recuperado de https://spiegato
 
 Kazuki Umeda. (2021, 15 julio) What We can Create w/ p5js & Spherical Coordinates.Recuperado de https://www.youtube.com/watch?v=SGHWZz5Mrsw&ab_channel=KazukiUmeda
 {{< /hint >}}
-
