@@ -58,7 +58,7 @@ La mayoría de los analizadores de FFT permiten la transformación de 512, 1024,
 El sistema de coordenadas esféricas se basa en la misma idea que las coordenadas polares y se utiliza para determinar la posición espacial de un punto mediante una distancia y dos ángulos.
 {{< /hint >}}
 
-{{<p5-iframe ver="1.4.2" sketch="/showcase/sketches/3d_app/SphericalCoordinates.js" lib1="https://cdnjs.cloudflare.com/ajax/libs/p5.js/1.4.2/p5.min.js" width="415" height="530" style="border:none;">}}
+{{<p5-iframe ver="1.4.2" sketch="/showcase/sketches/3d_app/SphericalCoordinates.js" lib1="https://cdnjs.cloudflare.com/ajax/libs/p5.js/1.4.2/p5.min.js" width="410" height="530" style="border:none; margin: 2rem auto; display: block; ">}}
 
 ## Source Code: Normalizer.js
 
