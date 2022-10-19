@@ -65,8 +65,9 @@ El sistema de coordenadas esféricas se basa en la misma idea que las coordenada
 {{< details "Normalizer.js" closed >}}
 {{< katex display>}}
 
-
 ```js
+
+
 class Normalizer{
     constructor(audio){
         // Singleton Pattern
