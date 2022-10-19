@@ -31,16 +31,16 @@ Es usada para transformar señales entre el dominio del tiempo o espacio al domi
 {{< /hint >}}
 
 Se define matemáticamente así: <br>
-<img src="/showcase/sketches/3d_app/FT Eq.png" width="250" style="margin: auto 2rem; display: block;">
+<img src="/showcase/sketches/3d_app/FT Eq.png" width="250" style="margin: 2rem auto; display: block;">
 
 A continuación, se muestra una comparación del dominio del tiempo y de la frecuencia de una onda sinusoidal.  
-<img src="/showcase/sketches/3d_app/Fourier Transform.png" style="margin: auto 2rem; display: block; margin: 2rem;">
+<img src="/showcase/sketches/3d_app/Fourier Transform.png" style="margin: 2rem auto; display: block;">
 
 {{< hint info >}}
 
 La Transformada de Fourier tiene su versión discreta que facilita su implementación computacional, la cual está definida así:
 Transformada Discreta de Fourier (DFT):  
-<img src="/showcase/sketches/3d_app/DFT Eq.png" width="350" style="margin: auto 2rem; display: block; margin: 2rem;">
+<img src="/showcase/sketches/3d_app/DFT Eq.png" width="350" style="margin: 2rem auto; display: block;">
 
 {{< /hint >}}
 
@@ -52,7 +52,7 @@ La mayoría de los analizadores de FFT permiten la transformación de 512, 1024,
 
 ### Coordenadas esféricas
 
-<img src="/showcase/sketches/3d_app/coordenadasEsfericas.PNG" width="400" style="margin: auto 2rem; display: block; margin: 2rem;">
+<img src="/showcase/sketches/3d_app/coordenadasEsfericas.PNG" width="400" style="margin: 2rem auto; display: block;">
 
 {{< hint info >}}
 El sistema de coordenadas esféricas se basa en la misma idea que las coordenadas polares y se utiliza para determinar la posición espacial de un punto mediante una distancia y dos ángulos.
@@ -123,7 +123,7 @@ class Normalizer {
 Existen miles de visualizadores de música diferentes. Cada uno tiene una interpretación diferente de cómo se ve el sonido.
 {{< /hint >}}
 
-<img src="/showcase/sketches/3d_app/visualizacion-musica.png" width="600" style="margin: auto 2rem; display: block;">
+<img src="/showcase/sketches/3d_app/visualizacion-musica.png" width="600" style="margin: 2rem auto; display: block;">
 
 La visualización de música es un desarrollo que se puede decir es moderno, pero sus raíces se remontan a siglos atrás. Goethe e Isaac Newton propusieron teorías sobre cómo el sonido y la luz comparten frecuencias comunes.
 
