@@ -63,8 +63,6 @@ El sistema de coordenadas esféricas se basa en la misma idea que las coordenada
 
 
 {{< details "Normalizer.js" closed >}}
-{{< katex display>}}
-
 ```js
 
 
@@ -93,31 +91,6 @@ class Normalizer{
         Normalizer.instance = this;
         return this
     }
-    
-    setLinearScale(){this.scaleType = 'linear';}
-    setLogScale(){this.scaleType = 'log';}
-    
-    scaleLogToLinear(){
-        let newDataArray = [];
-        let pow2 = 1;
-        
-        while (pow2 <= 256){
-            const initIndex = pow2 - 1;
-            const finalIndex = (2*pow2) - 1;
-            
-            let sum = 0;
-            for (let i = initIndex; i<finalIndex; i++){
-            sum += this.dataArray[i];
-            }
-            
-            const n = finalIndex - initIndex;
-            newDataArray.push( sum/n );
-            
-            pow2 *= 2;
-        }
-        
-        this.dataArray = new Uint8Array(newDataArray);
-    }
       
     getData(){
         this.dataArray = new Uint8Array(this.bufferLength);
@@ -128,15 +101,12 @@ class Normalizer{
         return this.dataArray;
     }
 
-    togglePlay(){
-        if (this.audio.paused){ this.audio.play();
-        }else{ this.audio.pause();}
-        return !(this.audio.paused)
-    }
+    setLogScale(){this.scaleType = 'log';}
+    setLinearScale(){this.scaleType = 'linear';}
+    scaleLogToLinear(){ (...) }
+    togglePlay(){(...)}
 }
 ```
-
-{{< /katex >}}
 {{< /details >}}
 
 ## Solución y resultados
