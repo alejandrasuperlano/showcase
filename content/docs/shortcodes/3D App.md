@@ -48,8 +48,11 @@ Por último, existe un algoritmo que reduce la complejidad de la implementación
 
 La mayoría de los analizadores de FFT permiten la transformación de 512, 1024, 2048 o 4096 muestras.
 
-## Source Code: Normalizer.js
+## Source Code
 
+
+{{< details "Normalizer.js" closed >}}
+{{< katex display>}}
 ```js
 class Normalizer{
     constructor(audio){
@@ -118,6 +121,8 @@ class Normalizer{
     }
 }
 ```
+{{< /katex >}}
+{{< /details >}}
 
 ## Solución y resultados
 
