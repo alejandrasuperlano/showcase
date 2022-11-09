@@ -235,6 +235,7 @@ Visual Computing. (2022, 9 noviembre). Coloring. Visual Computing. Recuperado de
     #color-blending{
         background-color: black;
         border-radius: 1rem;
+        padding: 1rem;
     }
     #color-blending iframe{
         border: none;
