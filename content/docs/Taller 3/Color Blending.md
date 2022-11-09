@@ -207,8 +207,11 @@ function draw() {
 
 ## Solución y resultados
 
-<div style="display:flex; align-items: center; justify-content: center;" id="color-blending">
+<div style="display:flex; flex-direction: column; align-items: center; justify-content: center;" id="color-blending">
     {{< p5-iframe sketch="/showcase/sketches/color_blending/sketch.js" lib1="https://cdn.jsdelivr.net/gh/VisualComputing/p5.treegl/p5.treegl.js" lib2="https://cdnjs.cloudflare.com/ajax/libs/p5.js/1.4.2/p5.min.js" width="520" height="270">}}
+
+
+<div style="color: white;">Utilice el selector para cambiar el modo de mezcla (BlendMode).</div>
 </div>
 
 ## Conclusiones
