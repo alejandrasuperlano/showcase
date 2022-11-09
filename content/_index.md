@@ -27,6 +27,7 @@ type: docs
 <style>
     .my-nav{
         display: flex;
+        justify-content: center;
         flex-wrap: wrap;
     }
     .my-nav-option{
