@@ -10,12 +10,12 @@ const HEIGHT = 250;
 function preload() {
     // Lectura del Shader utilizando Tree
     modeToFileName = {
-        'Multiply ❌': readShader('mult.frag', { matrices: Tree.NONE, varyings: Tree.NONE }), 
-        'Multiply ❌ + Brightness 💡': readShader('multBrightness.frag', { matrices: Tree.NONE, varyings: Tree.NONE }), 
-        'Add ➕' : readShader('add.frag', { matrices: Tree.NONE, varyings: Tree.NONE }),
-        'Difference ➖' : readShader('difference.frag', { matrices: Tree.NONE, varyings: Tree.NONE }),
-        'Darkest 🌑' : readShader('dark.frag', { matrices: Tree.NONE, varyings: Tree.NONE }),
-        'Lightest 🌞' : readShader('light.frag', { matrices: Tree.NONE, varyings: Tree.NONE }),
+        'Multiply ❌': readShader('https://mbolanoss.github.io/showcase/sketches/color_blending/mult.frag', { matrices: Tree.NONE, varyings: Tree.NONE }), 
+        'Multiply ❌ + Brightness 💡': readShader('https://mbolanoss.github.io/showcase/sketches/color_blending/multBrightness.frag', { matrices: Tree.NONE, varyings: Tree.NONE }), 
+        'Add ➕' : readShader('https://mbolanoss.github.io/showcase/sketches/color_blending/add.frag', { matrices: Tree.NONE, varyings: Tree.NONE }),
+        'Difference ➖' : readShader('https://mbolanoss.github.io/showcase/sketches/color_blending/difference.frag', { matrices: Tree.NONE, varyings: Tree.NONE }),
+        'Darkest 🌑' : readShader('https://mbolanoss.github.io/showcase/sketches/color_blending/dark.frag', { matrices: Tree.NONE, varyings: Tree.NONE }),
+        'Lightest 🌞' : readShader('https://mbolanoss.github.io/showcase/sketches/color_blending/light.frag', { matrices: Tree.NONE, varyings: Tree.NONE }),
     }
 
     modeToIdentity = {
