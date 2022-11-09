@@ -211,7 +211,7 @@ function draw() {
     {{< p5-iframe sketch="/showcase/sketches/color_blending/sketch.js" lib1="https://cdn.jsdelivr.net/gh/VisualComputing/p5.treegl/p5.treegl.js" lib2="https://cdnjs.cloudflare.com/ajax/libs/p5.js/1.4.2/p5.min.js" width="520" height="270">}}
 
 
-<div style="color: white;">Utilice el selector para cambiar el modo de mezcla (BlendMode).</div>
+<div style="color: white;padding: 0.5rem;">Utilice el selector para cambiar el modo de mezcla (BlendMode).</div>
 </div>
 
 ## Conclusiones
@@ -235,5 +235,8 @@ Visual Computing. (2022, 9 noviembre). Coloring. Visual Computing. Recuperado de
     #color-blending{
         background-color: black;
         border-radius: 1rem;
+    }
+    #color-blending iframe{
+        border: none;
     }
 </style>
