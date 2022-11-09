@@ -3,7 +3,7 @@ title: Introduction
 type: docs
 ---
 
-## Contenido
+## Ejercicios 📙
 
 <div class="my-nav">
     <a href="/docs/Taller-1/Visual-Illusions/" class="my-nav-option">
