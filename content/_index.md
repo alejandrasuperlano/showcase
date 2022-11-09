@@ -27,12 +27,13 @@ type: docs
 <style>
     .my-nav{
         display: flex;
+        flex-wrap: wrap;
     }
     .my-nav-option{
         display: flex;
         flex-direction: column;
-        width: 10rem;
-        height: 10rem;
+        width: 8rem;
+        height: 8rem;
         float: left;
         text-decoration: none;
         border: solid 0.2rem #6bf;
@@ -46,7 +47,7 @@ type: docs
         text-align: center;
     }
     .my-nav-option .emoji{
-        font-size: 2rem;
+        font-size: 1rem;
         text-align: center;
     }
 </style>
