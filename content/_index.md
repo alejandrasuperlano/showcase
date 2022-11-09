@@ -35,7 +35,7 @@ type: docs
         height: 10rem;
         float: left;
         text-decoration: none;
-        border: solid 0.2rem #b88dff;
+        border: solid 0.2rem #6bf;
         margin: 2rem;
         border-radius: 1rem;
         align-items:center;
