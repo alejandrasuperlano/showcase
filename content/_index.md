@@ -3,7 +3,7 @@ title: Introduction
 type: docs
 ---
 
-# Contenido
+## Contenido
 
 <div>
     <a href="/docs/Taller-1/Visual-Illusions/">Visual Illusions 👁‍🗨</a>
