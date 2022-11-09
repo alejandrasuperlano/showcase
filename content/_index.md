@@ -5,12 +5,49 @@ type: docs
 
 ## Contenido
 
-<div>
-    <a href="/docs/Taller-1/Visual-Illusions/">Visual Illusions 👁‍🗨</a>
-    <a href="/docs/Taller-1/Visual-Masking/">Visual Masking 🐹</a>
-    <a href="/docs/Taller-1/Visual-Masking/">WebGL 3D App 🎵</a>
-    <a href="/docs/Taller-3/Color-Blending/">Color Blending 🌈</a>
+<div class="my-nav">
+    <a href="/docs/Taller-1/Visual-Illusions/" class="my-nav-option">
+        <span class="title">Visual Illusions</span>
+        <span class="emoji">👁‍🗨</span>
+    </a>
+    <a href="/docs/Taller-1/Visual-Masking/" class="my-nav-option">
+        <span class="title">Visual Masking</span>
+        <span class="emoji">🐹</span>
+    </a>
+    <a href="/docs/Taller-2/WebGL-3D-App/" class="my-nav-option">
+        <span class="title">WebGL 3D App</span>
+        <span class="emoji">🎵</span>
+    </a>
+    <a href="/docs/Taller-3/Color-Blending/" class="my-nav-option">
+        <span class="title">Color Blending</span>
+        <span class="emoji">🌈</span>
+    </a>
 </div>
+
+<style>
+    .my-nav{
+        display: flex;
+    }
+    .my-nav-option{
+        display: flex;
+        flex-direction: column;
+        width: 10rem;
+        height: 10rem;
+        float: left;
+        text-decoration: none;
+        border: solid 0.2rem #b88dff;
+        margin: 2rem;
+        border-radius: 1rem;
+        align-items:center;
+        justify-content: center;
+    }
+    .my-nav-option .title{
+        font-size: 1.2rem;
+    }
+    .my-nav-option .emoji{
+        font-size: 2rem;
+    }
+</style>
 
 ## Sobre Nosostros 👾
 
@@ -19,8 +56,6 @@ type: docs
 - <b> Miguel Bolaños </b>: Soy un estudiante de Ingeniería de Sistemas y Computación, actualmente estoy cursando mi 9no semestre. Profesionalmente me gustaría dedicarme al desarrollo de software, específicamente al desarrollo de aplicaciones móviles o software del lado del backend. Entre mis hobbies están jugar videojuegos y cocinar.
 {{</hint >}}
 
-<br>
-<br>
 
 {{< hint info >}}
 
@@ -28,8 +63,6 @@ type: docs
 
 {{</hint >}}
 
-<br>
-<br>
 
 {{< hint info >}}
 
