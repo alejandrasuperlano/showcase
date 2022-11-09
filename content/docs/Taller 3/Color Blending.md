@@ -3,8 +3,8 @@
 {{< hint info >}}
 <b> Exercises </b>
 
-1. Averigua el código js de los sketches de ejemplo.
-2. Implementar otros modos de blending. Tomar esta <a href="https://p5js.org/reference/#/p5/blendMode">referencia</a> como un punto de partida.
+1. Averiguar el código js de los sketches de ejemplo.
+2. Implementar otros modos de blending. Tomar esta <a href="https://p5js.org/reference/#/p5/blendMode" target="_blank">referencia</a> como un punto de partida.
 {{< /hint >}}
 
 ## Marco teórico
@@ -12,11 +12,11 @@
 ### Color Mixing
 Existen 3 tipos de mezcla de colores: aditivo, sustractivo y promedio.
 
-* <b style="color: #6bf;">Aditivo</b> 
+* <b style="color: #FFAA66;">Aditivo</b> 
     * Por convención, los 3 colores primarios son el rojo, el verde y el azul. 
     * La ausencia de luz de cualquier color corresponde con negro.
     * Si se mezclan los 3 colores en mismas propociones, el resultado es neutral (blanco o gris).
-    * Utilizado para <span style="color: #6bf">monitores de computador</span>.
+    * Utilizado para <span style="color: #FFAA66">monitores de computador</span>.
 * **Sustractivo**
     * Los 3 colores primarios son cyan, magenta y amarillo.
     * Corresponde a la mezcla de sustancias fisicas: por ejemplo, pintura.
@@ -27,7 +27,7 @@ Existen 3 tipos de mezcla de colores: aditivo, sustractivo y promedio.
         * Diferente a mezcla substractiva, en cuando a que se generan color más oscuros.
 
 ### Fragment Shader
-El fragment shader define el color normalizado del fragmento de cada pixel, que debe asignarse siempre a la variable reservada ```gl_FragColor vec4 glsl ```. 
+El fragment shader define el color normalizado del fragmento de cada pixel, que debe asignarse siempre a la variable reservada ```gl_FragColor vec4 glsl```. 
 
 La información correspondiente a los colores que se van a mezclar se pasan como una uniforme, al archivo fragment shader.
 
