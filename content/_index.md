@@ -6,19 +6,19 @@ type: docs
 ## Ejercicios 📙
 
 <div class="my-nav">
-    <a href="/docs/Taller-1/Visual-Illusions/" class="my-nav-option">
+    <a href="/showcase/docs/Taller-1/Visual-Illusions/" class="my-nav-option">
         <span class="title">Visual Illusions</span>
         <span class="emoji">👁‍🗨</span>
     </a>
-    <a href="/docs/Taller-1/Visual-Masking/" class="my-nav-option">
+    <a href="/showcase/docs/Taller-1/Visual-Masking/" class="my-nav-option">
         <span class="title">Visual Masking</span>
         <span class="emoji">🐹</span>
     </a>
-    <a href="/docs/Taller-2/WebGL-3D-App/" class="my-nav-option">
+    <a href="/showcase/docs/Taller-2/WebGL-3D-App/" class="my-nav-option">
         <span class="title">WebGL 3D App</span>
         <span class="emoji">🎵</span>
     </a>
-    <a href="/docs/Taller-3/Color-Blending/" class="my-nav-option">
+    <a href="/showcase/docs/Taller-3/Color-Blending/" class="my-nav-option">
         <span class="title">Color Blending</span>
         <span class="emoji">🌈</span>
     </a>
@@ -37,7 +37,8 @@ type: docs
         float: left;
         text-decoration: none;
         border: solid 0.2rem #6bf;
-        margin: 2rem;
+        margin: 1rem;
+        padding: 1rem;
         border-radius: 1rem;
         align-items:center;
         justify-content: center;
@@ -47,7 +48,7 @@ type: docs
         text-align: center;
     }
     .my-nav-option .emoji{
-        font-size: 1rem;
+        font-size: 2rem;
         text-align: center;
     }
 </style>
