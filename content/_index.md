@@ -43,9 +43,11 @@ type: docs
     }
     .my-nav-option .title{
         font-size: 1.2rem;
+        text-align: center;
     }
     .my-nav-option .emoji{
         font-size: 2rem;
+        text-align: center;
     }
 </style>
 
