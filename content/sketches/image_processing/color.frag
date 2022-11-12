@@ -24,31 +24,39 @@ float hsl(vec3 texel){
   return (maxColor + minColor)/2.0;
 }
 
-void main() {
-  vec4 texel = texture2D(texture, texcoords2);
+vec4 changeBrightness(vec4 defaultColor){
   vec4 newColor;
 
-  // Brightness tools
   if(brightnessTool == 0){
     // Default
-    newColor = texel;
+    newColor = defaultColor;
   }
   if(brightnessTool == 1){
     // Luma
-    newColor = vec4(vec3(luma(texel.rgb)), 1.0);
+    newColor = vec4(vec3(luma(defaultColor.rgb)), 1.0);
   }else if(brightnessTool == 2){
     // Mean
-    newColor = vec4(vec3(mean(texel.rgb)), 1.0);
+    newColor = vec4(vec3(mean(defaultColor.rgb)), 1.0);
   }else if(brightnessTool == 3){
     // HSV
-    newColor = vec4(vec3(hsv(texel.rgb)), 1.0);
+    newColor = vec4(vec3(hsv(defaultColor.rgb)), 1.0);
   }else if(brightnessTool == 4){
     // HSL
-    newColor = vec4(vec3(hsl(texel.rgb)), 1.0);
+    newColor = vec4(vec3(hsl(defaultColor.rgb)), 1.0);
   }
 
-  //Image kernels
+  return newColor;
+}
+
+void main() {
+  vec4 texel = texture2D(texture, texcoords2);
+  vec4 newColor;
   
+  // Brightness tools
+  newColor = changeBrightness(texel);
+
+  //Image kernels
+
 
   gl_FragColor = newColor;
 }

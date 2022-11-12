@@ -3,6 +3,32 @@ let brightnessRadio;
 
 let img;
 
+let kernels = {
+  none: [
+    [0, 0, 0],
+    [0, 1, 0],
+    [0, 0, 0],
+  ],
+
+  sharpen: [
+    [0, -1, 0],
+    [-1, 5, -1],
+    [0, -1, 0],
+  ],
+
+  emboss: [
+    [-2, -1, 0],
+    [-1, 1, 1],
+    [0, 1, 2],
+  ],
+
+  blur: [
+    [0.0625, 0.125, 0.0625],
+    [0.125, 0.25, 0.125],
+    [0.0625, 0.125, 0.0625],
+  ],
+};
+
 function preload() {
   myShader = readShader("/showcase/sketches/image_processing/color.frag", {
     varyings: Tree.texcoords2,
