@@ -1,5 +1,6 @@
 let myShader;
 let brightnessRadio;
+let kernelRadio;
 
 let img;
 
@@ -45,6 +46,8 @@ function setup() {
   shader(myShader);
 
   // User interaction
+  let brightnessTitle = createP("Select brightness tool:");
+  brightnessTitle.style("font-weight", "bold");
   brightnessRadio = createRadio();
   brightnessRadio.option(0, "None");
   brightnessRadio.option(1, "Luma");
@@ -53,6 +56,20 @@ function setup() {
   brightnessRadio.option(4, "HSL");
   brightnessRadio.selected(0);
 
+  let kernelTitle = createP("Select kernel to apply:");
+  kernelTitle.style("font-weight", "bold");
+  kernelRadio = createRadio();
+  kernelRadio.option("none", "Normal");
+  kernelRadio.option("sharpen", "Sharpen");
+  kernelRadio.option("emboss", "Emboss");
+  kernelRadio.option("blur", "Blur");
+  kernelRadio.selected("none");
+
+  kernelRadio.changed(() => {
+    let selection = kernelRadio.value();
+    myShader.setUniform("kernel", kernels[selection].flat());
+  });
+
   brightnessRadio.changed(() => {
     let mode = brightnessRadio.value();
     myShader.setUniform("brightnessTool", mode);
@@ -60,6 +77,8 @@ function setup() {
 
   myShader.setUniform("texture", img);
   myShader.setUniform("brightnessTool", 1);
+  myShader.setUniform("kernel", kernels["emboss"].flat());
+  emitTexOffset(myShader, img, "texOffset");
 }
 
 function draw() {
@@ -75,12 +94,4 @@ function draw() {
     -width / 2,
     height / 2
   );
-}
-
-function keyPressed() {
-  // if (key == "c") {
-  //   cmy = !cmy;
-  //   // https://p5js.org/reference/#/p5.Shader/setUniform
-  //   colorShader.setUniform("cmy", cmy);
-  // }
 }

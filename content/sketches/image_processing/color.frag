@@ -2,6 +2,8 @@ precision mediump float;
 
 uniform sampler2D texture;
 uniform int brightnessTool;
+uniform vec2 texOffset;
+uniform float kernel[9];
 
 varying vec2 texcoords2;
 
@@ -48,15 +50,46 @@ vec4 changeBrightness(vec4 defaultColor){
   return newColor;
 }
 
+vec4 applyKernel(){
+  vec2 tc0 = texcoords2 + vec2(-texOffset.s, -texOffset.t);
+  vec2 tc1 = texcoords2 + vec2(         0.0, -texOffset.t);
+  vec2 tc2 = texcoords2 + vec2(+texOffset.s, -texOffset.t);
+  vec2 tc3 = texcoords2 + vec2(-texOffset.s,          0.0);
+  vec2 tc4 = texcoords2 + vec2(         0.0,          0.0);
+  vec2 tc5 = texcoords2 + vec2(+texOffset.s,          0.0);
+  vec2 tc6 = texcoords2 + vec2(-texOffset.s, +texOffset.t);
+  vec2 tc7 = texcoords2 + vec2(         0.0, +texOffset.t);
+  vec2 tc8 = texcoords2 + vec2(+texOffset.s, +texOffset.t);
+
+  vec4 rgba[9];
+  rgba[0] = texture2D(texture, tc0);
+  rgba[1] = texture2D(texture, tc1);
+  rgba[2] = texture2D(texture, tc2);
+  rgba[3] = texture2D(texture, tc3);
+  rgba[4] = texture2D(texture, tc4);
+  rgba[5] = texture2D(texture, tc5);
+  rgba[6] = texture2D(texture, tc6);
+  rgba[7] = texture2D(texture, tc7);
+  rgba[8] = texture2D(texture, tc8);
+
+  vec4 convolution;
+  for (int i = 0; i < 9; i++) {
+    convolution += rgba[i]*kernel[i];
+  }
+
+  convolution = vec4(convolution.rgb, 1.0);
+
+  return convolution;
+}
+
 void main() {
-  vec4 texel = texture2D(texture, texcoords2);
-  vec4 newColor;
-  
+  vec4 texel;
+
+
+  // Image kernel
+  texel = applyKernel();
+
   // Brightness tools
-  newColor = changeBrightness(texel);
-
-  //Image kernels
-
-
-  gl_FragColor = newColor;
+  texel = changeBrightness(texel);
+  gl_FragColor = texel;
 }
