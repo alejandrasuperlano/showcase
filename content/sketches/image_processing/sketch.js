@@ -4,8 +4,10 @@ let kernelRadio;
 let areaRadio;
 let magnifierSlider;
 let areaSlider;
+let sourceRadio;
 
 let img;
+let video;
 
 let kernels = {
   none: [
@@ -34,6 +36,9 @@ let kernels = {
 };
 
 function preload() {
+  video = createVideo(["/showcase/sketches/image_processing/video.mp4"]);
+  video.hide();
+
   myShader = readShader("/showcase/sketches/image_processing/color.frag", {
     varyings: Tree.texcoords2,
   });
@@ -42,7 +47,7 @@ function preload() {
 }
 
 function setup() {
-  createCanvas(img.width, img.height, WEBGL);
+  createCanvas(700, 400, WEBGL);
   noStroke();
 
   textureMode(NORMAL);
@@ -79,7 +84,24 @@ function draw() {
 }
 
 function setupUI() {
-  // User interaction
+  let sourceTitle = createP("Select source:");
+  sourceTitle.style("font-weight", "bold");
+  sourceRadio = createRadio();
+  sourceRadio.option("img", "Image");
+  sourceRadio.option("video", "Video");
+  sourceRadio.changed(() => {
+    let val = sourceRadio.value();
+    if (val === "img") {
+      myShader.setUniform("texture", img);
+      emitTexOffset(myShader, img, "texOffset");
+      video.pause();
+    } else if (val === "video") {
+      myShader.setUniform("texture", video);
+      emitTexOffset(myShader, video, "texOffset");
+      video.loop();
+    }
+  });
+
   let brightnessTitle = createP("Select brightness tool:");
   brightnessTitle.style("font-weight", "bold");
   brightnessRadio = createRadio();
