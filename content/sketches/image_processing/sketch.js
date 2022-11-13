@@ -3,6 +3,7 @@ let brightnessRadio;
 let kernelRadio;
 let magnifierCheck;
 let magnifierSlider;
+let regionCheck;
 
 let img;
 
@@ -90,10 +91,24 @@ function setup() {
     myShader.setUniform("scale", magnifierSlider.value());
   });
 
+  let regionTitle = createP("Toggle region:");
+  regionTitle.style("font-weight", "bold");
+  regionCheck = createCheckbox("Region", false);
+  regionCheck.changed(() => {
+    let val = regionCheck.checked();
+
+    myShader.setUniform("kernel", kernels["none"].flat());
+    myShader.setUniform("brightnessTool", 0);
+
+    myShader.setUniform("region", val);
+  });
+
   myShader.setUniform("texture", img);
   myShader.setUniform("brightnessTool", 0);
   myShader.setUniform("kernel", kernels["none"].flat());
   myShader.setUniform("scale", 0.5);
+  myShader.setUniform("region", false);
+  myShader.setUniform("magnifier", false);
   emitTexOffset(myShader, img, "texOffset");
   emitResolution(myShader, "resolution");
 }
