@@ -3,9 +3,14 @@ precision mediump float;
 uniform sampler2D texture;
 uniform int brightnessTool;
 uniform vec2 texOffset;
+uniform vec2 mouse;
+uniform vec2 resolution;
 uniform float kernel[9];
 
 varying vec2 texcoords2;
+
+const float radius = 100.0;
+const float scale = 0.2;
 
 float luma(vec3 texel){
   return 0.299 * texel.r + 0.587 * texel.g + 0.114 * texel.b;
@@ -83,13 +88,26 @@ vec4 applyKernel(){
 }
 
 void main() {
-  vec4 texel;
+  vec4 texel = texture2D(texture, texcoords2);
 
+  float dist = distance(gl_FragCoord.xy, mouse);
+  if(dist < radius){  
+    vec2 disV = gl_FragCoord.xy - mouse;
+
+    vec2 newCoords = gl_FragCoord.xy;
+
+    vec2 trueUV = (newCoords - (disV * scale)) / resolution;
+    trueUV = vec2(trueUV.x, 1.0 - trueUV.y);
+    gl_FragColor = texture2D(texture, trueUV);
+
+  }else{
+    gl_FragColor = texel;
+  }
 
   // Image kernel
   texel = applyKernel();
 
   // Brightness tools
   texel = changeBrightness(texel);
-  gl_FragColor = texel;
+  // gl_FragColor = texel;
 }
