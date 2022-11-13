@@ -6,6 +6,7 @@ uniform vec2 texOffset;
 uniform vec2 mouse;
 uniform vec2 resolution;
 uniform float kernel[9];
+uniform bool magnifier;
 
 varying vec2 texcoords2;
 
@@ -90,24 +91,34 @@ vec4 applyKernel(){
 void main() {
   vec4 texel = texture2D(texture, texcoords2);
 
-  float dist = distance(gl_FragCoord.xy, mouse);
-  if(dist < radius){  
-    vec2 disV = gl_FragCoord.xy - mouse;
-
-    vec2 newCoords = gl_FragCoord.xy;
-
-    vec2 trueUV = (newCoords - (disV * scale)) / resolution;
-    trueUV = vec2(trueUV.x, 1.0 - trueUV.y);
-    gl_FragColor = texture2D(texture, trueUV);
-
-  }else{
-    gl_FragColor = texel;
-  }
-
   // Image kernel
   texel = applyKernel();
 
   // Brightness tools
   texel = changeBrightness(texel);
-  // gl_FragColor = texel;
+
+  if(magnifier){
+    float dist = distance(gl_FragCoord.xy, mouse);
+    if(dist < radius){  
+      vec2 disV = gl_FragCoord.xy - mouse;
+
+      vec2 newCoords = gl_FragCoord.xy;
+
+      vec2 zoomed = (newCoords - (disV * scale)) / resolution;
+      zoomed = vec2(zoomed.x, 1.0 - zoomed.y);
+
+      vec4 zoomedTexel = texture2D(texture, zoomed);
+      // zoomedTexel = applyKernel();
+      zoomedTexel = changeBrightness(zoomedTexel);
+
+      gl_FragColor = zoomedTexel;
+
+    }else{
+      gl_FragColor = texel;
+    }
+  }else{
+    
+    gl_FragColor = texel;
+  }
+
 }
