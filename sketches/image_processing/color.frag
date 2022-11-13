@@ -113,6 +113,7 @@ void main() {
       vec2 newCoords = gl_FragCoord.xy;
 
       vec2 zoomed = (newCoords - (disV * scale)) / resolution;
+      // Se invierte el eje y
       zoomed = vec2(zoomed.x, 1.0 - zoomed.y);
 
       vec4 zoomedTexel = texture2D(texture, zoomed);
