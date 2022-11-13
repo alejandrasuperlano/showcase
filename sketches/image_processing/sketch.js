@@ -1,6 +1,7 @@
 let myShader;
 let brightnessRadio;
 let kernelRadio;
+let magnifierCheck;
 
 let img;
 
@@ -56,6 +57,11 @@ function setup() {
   brightnessRadio.option(4, "HSL");
   brightnessRadio.selected(0);
 
+  brightnessRadio.changed(() => {
+    let mode = brightnessRadio.value();
+    myShader.setUniform("brightnessTool", mode);
+  });
+
   let kernelTitle = createP("Select kernel to apply:");
   kernelTitle.style("font-weight", "bold");
   kernelRadio = createRadio();
@@ -70,9 +76,11 @@ function setup() {
     myShader.setUniform("kernel", kernels[selection].flat());
   });
 
-  brightnessRadio.changed(() => {
-    let mode = brightnessRadio.value();
-    myShader.setUniform("brightnessTool", mode);
+  let magnifierTitle = createP("Toggle magnifier:");
+  magnifierTitle.style("font-weight", "bold");
+  magnifierCheck = createCheckbox("Magnifier", false);
+  magnifierCheck.changed(() => {
+    myShader.setUniform("magnifier", magnifierCheck.checked());
   });
 
   myShader.setUniform("texture", img);
