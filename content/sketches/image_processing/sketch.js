@@ -1,9 +1,8 @@
 let myShader;
 let brightnessRadio;
 let kernelRadio;
-let magnifierCheck;
+let areaRadio;
 let magnifierSlider;
-let regionCheck;
 let areaSlider;
 
 let img;
@@ -49,6 +48,37 @@ function setup() {
   textureMode(NORMAL);
   shader(myShader);
 
+  setupUI();
+
+  myShader.setUniform("texture", img);
+  myShader.setUniform("brightnessTool", 0);
+  myShader.setUniform("kernel", kernels["none"].flat());
+  myShader.setUniform("scale", 0.5);
+  myShader.setUniform("radius", 100.0);
+  myShader.setUniform("region", false);
+  myShader.setUniform("magnifier", false);
+  emitTexOffset(myShader, img, "texOffset");
+  emitResolution(myShader, "resolution");
+}
+
+function draw() {
+  background(0);
+
+  quad(
+    -width / 2,
+    -height / 2,
+    width / 2,
+    -height / 2,
+    width / 2,
+    height / 2,
+    -width / 2,
+    height / 2
+  );
+
+  emitMousePosition(myShader, "mouse");
+}
+
+function setupUI() {
   // User interaction
   let brightnessTitle = createP("Select brightness tool:");
   brightnessTitle.style("font-weight", "bold");
@@ -79,59 +109,40 @@ function setup() {
     myShader.setUniform("kernel", kernels[selection].flat());
   });
 
-  let magnifierTitle = createP("Toggle magnifier:");
-  magnifierTitle.style("font-weight", "bold");
-  magnifierCheck = createCheckbox("Magnifier", false);
-  magnifierCheck.changed(() => {
-    myShader.setUniform("magnifier", magnifierCheck.checked());
-  });
+  let areaTitle = createP("Area tools:");
+  areaTitle.style("font-weight", "bold");
 
-  magnifierSlider = createSlider(0.0, 1.0, 0.5, 0.1);
-  magnifierSlider.changed(() => {
-    myShader.setUniform("scale", magnifierSlider.value());
-  });
+  areaRadio = createRadio();
+  areaRadio.option("none", "None");
+  areaRadio.option("magnifier", "Magnifier");
+  areaRadio.option("region", "Region");
+  areaRadio.selected("none");
 
-  let regionTitle = createP("Toggle region:");
-  regionTitle.style("font-weight", "bold");
-  regionCheck = createCheckbox("Region", false);
-  regionCheck.changed(() => {
-    let val = regionCheck.checked();
-
-    myShader.setUniform("kernel", kernels["none"].flat());
+  areaRadio.changed(() => {
+    let selection = areaRadio.value();
+    if (selection === "none") {
+      myShader.setUniform("region", false);
+      myShader.setUniform("magnifier", false);
+    } else if (selection === "magnifier") {
+      myShader.setUniform("region", false);
+      myShader.setUniform("magnifier", true);
+    } else if (selection === "region") {
+      myShader.setUniform("region", true);
+      myShader.setUniform("magnifier", false);
+    }
     myShader.setUniform("brightnessTool", 0);
-
-    myShader.setUniform("region", val);
+    myShader.setUniform("kernel", kernels["none"].flat());
   });
 
+  let areaSliderTitle = createP("Area size:");
   areaSlider = createSlider(25.0, 250.0, 100.0, 50.0);
   areaSlider.changed(() => {
     myShader.setUniform("radius", areaSlider.value());
   });
 
-  myShader.setUniform("texture", img);
-  myShader.setUniform("brightnessTool", 0);
-  myShader.setUniform("kernel", kernels["none"].flat());
-  myShader.setUniform("scale", 0.5);
-  myShader.setUniform("radius", 100.0);
-  myShader.setUniform("region", false);
-  myShader.setUniform("magnifier", false);
-  emitTexOffset(myShader, img, "texOffset");
-  emitResolution(myShader, "resolution");
-}
-
-function draw() {
-  background(0);
-
-  quad(
-    -width / 2,
-    -height / 2,
-    width / 2,
-    -height / 2,
-    width / 2,
-    height / 2,
-    -width / 2,
-    height / 2
-  );
-
-  emitMousePosition(myShader, "mouse");
+  let zoomSliderTitle = createP("Zoom level:");
+  magnifierSlider = createSlider(0.0, 1.0, 0.5, 0.1);
+  magnifierSlider.changed(() => {
+    myShader.setUniform("scale", magnifierSlider.value());
+  });
 }
