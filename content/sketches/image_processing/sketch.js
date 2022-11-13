@@ -79,6 +79,7 @@ function setup() {
   myShader.setUniform("brightnessTool", 1);
   myShader.setUniform("kernel", kernels["emboss"].flat());
   emitTexOffset(myShader, img, "texOffset");
+  emitResolution(myShader, "resolution");
 }
 
 function draw() {
@@ -94,4 +95,6 @@ function draw() {
     -width / 2,
     height / 2
   );
+
+  emitMousePosition(myShader, "mouse");
 }
