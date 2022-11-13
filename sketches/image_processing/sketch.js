@@ -2,6 +2,7 @@ let myShader;
 let brightnessRadio;
 let kernelRadio;
 let magnifierCheck;
+let magnifierSlider;
 
 let img;
 
@@ -83,9 +84,16 @@ function setup() {
     myShader.setUniform("magnifier", magnifierCheck.checked());
   });
 
+  magnifierSlider = createSlider(0.0, 1.0, 0.5, 0.1);
+  magnifierSlider.changed(() => {
+    console.log(magnifierSlider.value());
+    myShader.setUniform("scale", magnifierSlider.value());
+  });
+
   myShader.setUniform("texture", img);
-  myShader.setUniform("brightnessTool", 1);
-  myShader.setUniform("kernel", kernels["emboss"].flat());
+  myShader.setUniform("brightnessTool", 0);
+  myShader.setUniform("kernel", kernels["none"].flat());
+  myShader.setUniform("scale", 0.5);
   emitTexOffset(myShader, img, "texOffset");
   emitResolution(myShader, "resolution");
 }

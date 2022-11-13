@@ -11,7 +11,7 @@ uniform bool magnifier;
 varying vec2 texcoords2;
 
 const float radius = 100.0;
-const float scale = 0.2;
+uniform float scale;
 
 float luma(vec3 texel){
   return 0.299 * texel.r + 0.587 * texel.g + 0.114 * texel.b;
