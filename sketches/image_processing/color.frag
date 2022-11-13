@@ -11,7 +11,7 @@ uniform bool region;
 
 varying vec2 texcoords2;
 
-const float radius = 100.0;
+uniform float radius;
 uniform float scale;
 
 float luma(vec3 texel){

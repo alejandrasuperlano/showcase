@@ -4,6 +4,7 @@ let kernelRadio;
 let magnifierCheck;
 let magnifierSlider;
 let regionCheck;
+let areaSlider;
 
 let img;
 
@@ -87,7 +88,6 @@ function setup() {
 
   magnifierSlider = createSlider(0.0, 1.0, 0.5, 0.1);
   magnifierSlider.changed(() => {
-    console.log(magnifierSlider.value());
     myShader.setUniform("scale", magnifierSlider.value());
   });
 
@@ -103,10 +103,16 @@ function setup() {
     myShader.setUniform("region", val);
   });
 
+  areaSlider = createSlider(25.0, 250.0, 100.0, 50.0);
+  areaSlider.changed(() => {
+    myShader.setUniform("radius", areaSlider.value());
+  });
+
   myShader.setUniform("texture", img);
   myShader.setUniform("brightnessTool", 0);
   myShader.setUniform("kernel", kernels["none"].flat());
   myShader.setUniform("scale", 0.5);
+  myShader.setUniform("radius", 100.0);
   myShader.setUniform("region", false);
   myShader.setUniform("magnifier", false);
   emitTexOffset(myShader, img, "texOffset");
