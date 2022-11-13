@@ -7,6 +7,7 @@ uniform vec2 mouse;
 uniform vec2 resolution;
 uniform float kernel[9];
 uniform bool magnifier;
+uniform bool region;
 
 varying vec2 texcoords2;
 
@@ -91,15 +92,22 @@ vec4 applyKernel(){
 void main() {
   vec4 texel = texture2D(texture, texcoords2);
 
-  // Image kernel
-  texel = applyKernel();
+  // Aplica el kernel y el brillo si no hay region
+  if(!region){
+    // Image kernel
+    texel = applyKernel();
 
-  // Brightness tools
-  texel = changeBrightness(texel);
+    // Brightness tools
+    texel = changeBrightness(texel);
+  }
 
-  if(magnifier){
-    float dist = distance(gl_FragCoord.xy, mouse);
-    if(dist < radius){  
+
+  float dist = distance(gl_FragCoord.xy, mouse);
+
+  // Region o lupa
+  if(dist < radius){
+    // Lupa
+    if(magnifier){
       vec2 disV = gl_FragCoord.xy - mouse;
 
       vec2 newCoords = gl_FragCoord.xy;
@@ -113,11 +121,26 @@ void main() {
 
       gl_FragColor = zoomedTexel;
 
-    }else{
+    }
+    // Lupa
+    else if(region){
+      vec2 newCoords = gl_FragCoord.xy;
+
+      vec2 region = newCoords / resolution;
+
+      vec4 regionTexel = texture2D(texture, region);
+      regionTexel = applyKernel();
+      regionTexel = changeBrightness(regionTexel);
+
+      gl_FragColor = regionTexel;
+    }
+    // Ninguno esta activo
+    else{
       gl_FragColor = texel;
     }
-  }else{
-    
+  }
+  // Por fuera de la region o lupa
+  else{
     gl_FragColor = texel;
   }
 
