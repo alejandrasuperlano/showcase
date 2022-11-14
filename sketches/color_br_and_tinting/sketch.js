@@ -9,8 +9,8 @@ const tintModeToCombination = { '🎨 Multiply ❌': 0, '🎨 Multiply ❌ + Bri
 }
 
 function preload() {
-  lumaShader = readShader('https://mbolanoss.github.io/showcase/sketches/color_br_and_tinting/frag.frag', { varyings: Tree.texcoords2 });
-  img = loadImage('https://mbolanoss.github.io/showcase/sketches/color_br_and_tinting/fire_breathing.png');
+  lumaShader = readShader('/showcase/sketches/color_br_and_tinting/frag.frag', { varyings: Tree.texcoords2 });
+  img = loadImage('/showcase/sketches/color_br_and_tinting/fire_breathing.png');
 }
 
 function setup() {
