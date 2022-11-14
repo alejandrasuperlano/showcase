@@ -37,7 +37,7 @@ function setup() {
   brightnessToolMode.changed(selectBrightnessToolModeEvent);
 
   // Selector de color para tinte
-  colorPicker = createColorPicker(color(0.8, 0.5, 0.3));
+  colorPicker = createColorPicker(color(1, 0, 0));
   colorPicker.position(width-45, 17);
 
   // Checkbox para aplicar tinte
