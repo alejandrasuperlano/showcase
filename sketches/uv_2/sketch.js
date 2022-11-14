@@ -36,7 +36,7 @@ function setup() {
 
   // Slider de Opacidad
   opacity = createSlider(0, 1, 0.5, 0.01);
-  opacity.position(10, 25);
+  opacity.position(10, 12);
   opacity.style('width', '280px');
 
   // Creación de select de canales de color
