@@ -1,4 +1,4 @@
-# Color Brightness and Tinting
+# UV Visualization - Exercise 2
 
 ## Solución y Resultados
 <div style="display:flex; flex-direction: column; align-items: center; justify-content: center;" id="uv-2">
