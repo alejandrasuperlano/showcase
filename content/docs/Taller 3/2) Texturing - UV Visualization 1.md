@@ -17,7 +17,6 @@
 
 <p>Construcción de la figura invirtiendo las coordenadas de la textura en el llamado a vertex.</p>
 
-<div>
 La función vertex tiene la siguiente estructura:
 <div style="padding-left: 4rem;">``` vertex(x, y, [z], [u], [v]) ```</div>
 <br>
@@ -27,7 +26,6 @@ Siendo los parametros los siguientes:
 <div style="padding-left: 4rem;">z - z-coordinate of the vertex</div>
 <div style="padding-left: 4rem;">u - the vertex's texture u-coordinate</div>
 <div style="padding-left: 4rem;">v - the vertex's texture v-coordinate</div>
-</div>
 
 <br><br>
 
