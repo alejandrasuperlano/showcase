@@ -7,7 +7,7 @@
     <img src="/showcase/sketches/uv_1/original_uv.png" width="300px">
 </div>
 
-Redefine the shape texture coordinates to turn the above image upside down.
+<p>Redefine the shape texture coordinates to turn the above image upside down.</p>
 
 {{< /hint >}}
 
@@ -15,8 +15,9 @@ Redefine the shape texture coordinates to turn the above image upside down.
 
 ### JavaScript: Ajustando coordenadas <u> y <v> en vertex
 
-Construcción de la figura invirtiendo las coordenadas de la textura en el llamado a vertex.
+<p>Construcción de la figura invirtiendo las coordenadas de la textura en el llamado a vertex.</p>
 
+<div>
 La función vertex tiene la siguiente estructura:
 <span style="margin-left: 1rem;">vertex(x, y, [z], [u], [v])</span>
 Siendo los parametros los siguientes:
@@ -25,6 +26,7 @@ Siendo los parametros los siguientes:
 <span style="margin-left: 1rem;">z - z-coordinate of the vertex</span>
 <span style="margin-left: 1rem;">u - the vertex's texture u-coordinate</span>
 <span style="margin-left: 1rem;">v - the vertex's texture v-coordinate</span>
+</div>
 
 ``` javascript
 // Construcción de la figura invirtiendo las coordenadas de la textura
