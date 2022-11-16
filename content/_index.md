@@ -46,7 +46,7 @@ type: docs
         justify-content: center;
         flex-wrap: wrap;
     }
-    .my-nav-option, .my-nav-option:visited{
+    .my-nav-option{
         display: flex;
         flex-direction: column;
         width: 8rem;
@@ -60,7 +60,9 @@ type: docs
         align-items:center;
         justify-content: center;
         transition: all .2s ease-in-out;
-        color: #84b2ff;
+    }
+    .my-nav-option:visited{
+        color: #84b2ff !important;
     }
     .my-nav-option:hover{
         transform: scale(1.1);
