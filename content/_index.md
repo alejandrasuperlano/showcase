@@ -61,14 +61,12 @@ type: docs
         justify-content: center;
         transition: all .2s ease-in-out;
     }
-    .my-nav-option:visited{
-        color: #84b2ff !important;
-    }
     .my-nav-option:hover{
         transform: scale(1.1);
-    }
-    .my-nav-option:hover, .my-nav-option:hover .title, .my-nav-option:hover .emoji{
         text-decoration: none;
+    }
+    .my-nav-option:visited{
+        color: #84b2ff !important;
     }
     .my-nav-option .title{
         font-size: 1.2rem;
