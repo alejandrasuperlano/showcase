@@ -19,13 +19,13 @@
 
 <div>
 La función vertex tiene la siguiente estructura:
-<span style="margin-left: 1rem;">vertex(x, y, [z], [u], [v])</span>
+<div style="margin-left: 1rem;">vertex(x, y, [z], [u], [v])</div>
 Siendo los parametros los siguientes:
-<span style="margin-left: 1rem;">x - x-coordinate of the vertex</span>
-<span style="margin-left: 1rem;">y - y-coordinate of the vertex</span>
-<span style="margin-left: 1rem;">z - z-coordinate of the vertex</span>
-<span style="margin-left: 1rem;">u - the vertex's texture u-coordinate</span>
-<span style="margin-left: 1rem;">v - the vertex's texture v-coordinate</span>
+<div style="margin-left: 1rem;">x - x-coordinate of the vertex</div>
+<div style="margin-left: 1rem;">y - y-coordinate of the vertex</div>
+<div style="margin-left: 1rem;">z - z-coordinate of the vertex</div>
+<div style="margin-left: 1rem;">u - the vertex's texture u-coordinate</div>
+<div style="margin-left: 1rem;">v - the vertex's texture v-coordinate</div>
 </div>
 
 ``` javascript
