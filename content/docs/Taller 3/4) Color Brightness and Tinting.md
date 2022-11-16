@@ -44,8 +44,17 @@ Y=0.2126\cdot R+ 0.7152\cdot G+0.0722\cdot B
 {{< /details >}}
 
 ### Texels
+Un téxel es la unidad mínima de una textura aplicada a una superficie. De esta manera, una textura se puede representar mediante una matriz de téxeles.
 
+Dentro del fragment shader, el texel se obtiene mediante la función 
+``` frag
+texture2D(sampler2D sampler, vec2 coord) 
+```
+Siendo los parametros los siguientes:
+- sampler - Especifica el sampler de la textura, del cual se reciben los texels.
+- coord - Especifica las coordenadas de textura donde la textura sera muestreada.
 
+Más información <a href="https://thebookofshaders.com/glossary/?search=texture2D" target="_blank">aqui</a>.
 
 ## Solución y Resultados
 <div style="display:flex; flex-direction: column; align-items: center; justify-content: center;" id="cbat">
@@ -64,6 +73,10 @@ Y=0.2126\cdot R+ 0.7152\cdot G+0.0722\cdot B
 # Referencias
 
 {{< hint danger >}}
+
+Wikipedia contributors. (2022, 15 noviembre). Texel. Wikipedia. Recuperado de https://es.wikipedia.org/wiki/Texel_(gr%C3%A1ficos)
+
+Patricio Gonzales Vivo. (2022 15 noviembre). Texture2D. The Book of Shaders. Recuperado de https://thebookofshaders.com/glossary/?search=texture2D
 
 Visual Computing. (2022, 15 noviembre). Texturing. Visual Computing. Recuperado de https://visualcomputing.github.io/docs/shaders/texturing/
 
