@@ -7,7 +7,7 @@
 
 // function preload() {
 //   // No se pasa ninguna matriz al shader
-//   uvShader = readShader('/showcase/sketches/uv_1/uv_inv.frag',
+//   uvShader = readShader('/showcase/sketches/uv_1/uv.frag',
 //                         { matrices: Tree.NONE, varyings: Tree.texcoords2 });
 // }
 
