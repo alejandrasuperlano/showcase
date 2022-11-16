@@ -68,7 +68,8 @@ Más información <a href="https://thebookofshaders.com/glossary/?search=texture
 
 ## Conclusiones
 
-- Conclusión 1
+- Los texeles, como mapeos de texturas, facilitan la implementación de herramientas de luminosidad y tintado.
+- Los texeles, permiten manipular texturas a muy bajo nivel y de manera rapida.
 
 # Referencias
 
