@@ -22,6 +22,22 @@ type: docs
         <span class="title">Color Blending</span>
         <span class="emoji">🌈</span>
     </a>
+    <a href="/showcase/docs/Taller-3/2-Texturing-UV-Visualization-1/" class="my-nav-option">
+        <span class="title">UV Visualization 1</span>
+        <span class="emoji">🟥🟩</span>
+    </a>
+    <a href="/showcase/docs/Taller-3/3-Texturing-UV-Visualization-2/" class="my-nav-option">
+        <span class="title">UV Visualization 1</span>
+        <span class="emoji">🟩🟦</span>
+    </a>
+    <a href="/showcase/docs/Taller-3/4-Color-Brightness-and-Tinting/" class="my-nav-option">
+        <span class="title">Brightness & Tinting</span>
+        <span class="emoji">💡🌈</span>
+    </a>
+    <a href="/showcase/docs/Taller-3/5-Image-Processing/" class="my-nav-option">
+        <span class="title">Image Processing</span>
+        <span class="emoji">🖼️</span>
+    </a>
 </div>
 
 <style>
