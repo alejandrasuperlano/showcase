@@ -13,7 +13,7 @@
 
 {{< /hint >}}
 
-<h2 style="color: #b88dff">Estrategia #1</h2>
+# Solución #1
 
 ### JavaScript: Ajustando coordenadas u & v en vertex
 
