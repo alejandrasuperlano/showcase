@@ -15,19 +15,19 @@
 
 ### JavaScript: Ajustando coordenadas u & v en vertex
 
-<p>Construcción de la figura invirtiendo las coordenadas de la textura en el llamado a vertex.</p>
+Construcción de la figura invirtiendo las coordenadas de la textura en el llamado a vertex.
 
 La función vertex tiene la siguiente estructura:
-<div style="padding-left: 4rem;">``` vertex(x, y, [z], [u], [v]) ```</div>
-<br>
-Siendo los parametros los siguientes:
-<div style="padding-left: 4rem;">x - x-coordinate of the vertex</div>
-<div style="padding-left: 4rem;">y - y-coordinate of the vertex</div>
-<div style="padding-left: 4rem;">z - z-coordinate of the vertex</div>
-<div style="padding-left: 4rem;">u - the vertex's texture u-coordinate</div>
-<div style="padding-left: 4rem;">v - the vertex's texture v-coordinate</div>
+``` javascript
+vertex(x, y, [z], [u], [v]) 
+```
 
-<br><br>
+Siendo los parametros los siguientes:
+- x - x-coordinate of the vertex
+- y - y-coordinate of the vertex
+- z - z-coordinate of the vertex
+- u - the vertex's texture u-coordinate
+- v - the vertex's texture v-coordinate
 
 
 {{< details "Source Code" closed >}}
@@ -83,7 +83,6 @@ function draw() {
 ## Solución y Resultados
 <div style="display:flex; flex-direction: column; align-items: center; justify-content: center;" id="uv-1">
 {{< p5-iframe sketch="/showcase/sketches/uv_1/sketch.js" lib1="https://cdn.jsdelivr.net/gh/VisualComputing/p5.treegl/p5.treegl.js" lib3="https://cdn.jsdelivr.net/gh/freshfork/p5.EasyCam@1.2.1/p5.easycam.js" width="320" height="320">}}
-
 
 </div>
 
