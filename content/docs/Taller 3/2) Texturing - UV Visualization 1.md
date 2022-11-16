@@ -6,7 +6,7 @@
 <p>Redefine the shape texture coordinates to turn the above image upside down.</p>
 
 <div style="display: flex; align-items: center; justify-content: center; padding: 1rem;">
-    <img src="/showcase/sketches/uv_1/original_uv.png" width="150px">
+    <img src="/showcase/sketches/uv_1/original_uv.png" width="200px">
 </div>
 
 {{< /hint >}}
