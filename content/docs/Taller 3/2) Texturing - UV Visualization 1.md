@@ -19,7 +19,8 @@
 
 <div>
 La función vertex tiene la siguiente estructura:
-<div style="padding-left: 4rem;">```vertex(x, y, [z], [u], [v])```</div>
+<div style="padding-left: 4rem;">``` vertex(x, y, [z], [u], [v]) ```</div>
+<br>
 Siendo los parametros los siguientes:
 <div style="padding-left: 4rem;">x - x-coordinate of the vertex</div>
 <div style="padding-left: 4rem;">y - y-coordinate of the vertex</div>
@@ -27,6 +28,9 @@ Siendo los parametros los siguientes:
 <div style="padding-left: 4rem;">u - the vertex's texture u-coordinate</div>
 <div style="padding-left: 4rem;">v - the vertex's texture v-coordinate</div>
 </div>
+
+<br><br>
+
 
 {{< details "Source Code" closed >}}
 
