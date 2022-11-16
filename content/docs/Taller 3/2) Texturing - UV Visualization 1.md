@@ -11,7 +11,7 @@
 
 {{< /hint >}}
 
-## Source Code
+## Estrategia #1
 
 ### JavaScript: Ajustando coordenadas u & v en vertex
 
