@@ -4,7 +4,7 @@
 <b> Exercise </b>
 
 <div style="display: flex; align-items: center; justify-content: center; padding: 1rem;">
-    <img src="/showcase/sketches/uv_1/original_uv.png" width="300">
+    <img src="/showcase/sketches/uv_1/original_uv.png" width="300px">
 </div>
 
 Redefine the shape texture coordinates to turn the above image upside down.
