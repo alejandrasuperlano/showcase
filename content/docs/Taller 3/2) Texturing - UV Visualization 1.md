@@ -11,7 +11,7 @@
 
 {{< /hint >}}
 
-## Estrategia #1
+<h2 style="color: #FFAA66">Estrategia #1</h2>
 
 ### JavaScript: Ajustando coordenadas u & v en vertex
 
