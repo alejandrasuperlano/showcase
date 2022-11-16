@@ -1,4 +1,51 @@
-# Color Brightness and Tinting 👩‍🎨
+# Color Brightness 🌟 and Tinting 👩‍🎨
+
+{{< hint info >}}
+<b> Exercises </b>
+
+1. Implementar otras modos de luminosidad, como HSV, HSL y promedio.
+2. Implementar tintado de texturas para mezclar colores y texels.
+
+{{< /hint >}}
+
+## Marco teórico
+
+### Herramientas de luminosidad
+
+La luminosidad es la percepción visual de la luminancia de un objeto. En colorimetría, es una predicción de que tan iluminado aparecerá un color para un determinado observador.
+{{< hint info >}}
+**¿Qué es la luminancia?**
+Es la médida de intensidad lumínica por unidad de área de la luz viajando en una determinada dirección. Es decir, describe la cantidad de luz que pasa a través, es emitida o reflejada de un área particular.  
+Existen varias formas de calcular la luminosidad de un color. A modo de ejemplo, se mostrarán las siguientes 4:
+{{< /hint >}}
+
+{{< details "Media aritmética" closed >}}
+{{< katex display>}}
+I=\frac{R+G+B}{3}
+{{< /katex >}}
+{{< /details >}}
+
+{{< details "HSV" closed >}}
+{{< katex display>}}
+V=max(R,G,B)
+{{< /katex >}}
+{{< /details >}}
+
+{{< details "HSL" closed >}}
+{{< katex display>}}
+L=\frac{max(R,G,B)+min(R,G,B)}{2}
+{{< /katex >}}
+{{< /details >}}
+
+{{< details "Luma" closed >}}
+{{< katex display>}}
+Y=0.2126\cdot R+ 0.7152\cdot G+0.0722\cdot B
+{{< /katex >}}
+{{< /details >}}
+
+### Texels
+
+
 
 ## Solución y Resultados
 <div style="display:flex; flex-direction: column; align-items: center; justify-content: center;" id="cbat">
@@ -9,6 +56,18 @@
 <div style="color: white;padding: 0.5rem;">Utilice el checkbox para aplicar el <span style="color: #FFAA66">tintado</span>.</div>
 <div style="color: white;padding: 0.5rem;">Seleccione el <span style="color: #FFAA66">color de tintado</span> con el selector.</div>
 </div>
+
+## Conclusiones
+
+- Conclusión 1
+
+# Referencias
+
+{{< hint danger >}}
+
+Visual Computing. (2022, 15 noviembre). Texturing. Visual Computing. Recuperado de https://visualcomputing.github.io/docs/shaders/texturing/
+
+{{< /hint >}}
 
 <style>
     #cbat{
