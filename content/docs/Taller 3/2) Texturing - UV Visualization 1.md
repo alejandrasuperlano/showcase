@@ -13,7 +13,7 @@
 
 ## Solución #1
 
-### JavaScript: Ajustando coordenadas <span style="color: #f66">u</span> & <span style="color: #f66">v</span> en vertex
+### JavaScript: Ajustando coordenadas <span style="color: #a6e22e">u</span> & <span style="color: #a6e22e">v</span> en vertex
 
 Construcción de la figura invirtiendo las coordenadas de la textura en el llamado a vertex.
 
@@ -109,7 +109,7 @@ void main() {
 
 ```
 
-Debido a que normalizamos el modo de textura; logramos invertir la textura restando cada una de las componentes en <span style="color: #f66">x</span> y <span style="color: #f66">y</span> a 1.0
+Debido a que normalizamos el modo de textura; logramos invertir la textura restando cada una de las componentes en <span style="color: #a6e22e">x</span> y <span style="color: #a6e22e">y</span> a 1.0
 
 {{< /details >}}
 
