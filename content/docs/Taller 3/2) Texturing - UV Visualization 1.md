@@ -13,7 +13,7 @@
 
 ## Source Code
 
-### JavaScript: Ajustando coordenadas <u> y <v> en vertex
+### JavaScript: Ajustando coordenadas u & v en vertex
 
 <p>Construcción de la figura invirtiendo las coordenadas de la textura en el llamado a vertex.</p>
 
