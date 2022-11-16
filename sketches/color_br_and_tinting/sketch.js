@@ -10,7 +10,7 @@ const tintModeToCombination = { '🎨 Multiply ❌': 0, '🎨 Multiply ❌ + Bri
 
 function preload() {
   lumaShader = readShader('/showcase/sketches/color_br_and_tinting/frag.frag', { varyings: Tree.texcoords2 });
-  img = loadImage('/showcase/sketches/color_br_and_tinting/fire_breathing.png');
+  img = loadImage('/showcase/sketches/color_br_and_tinting/landscape.jpg');
 }
 
 function setup() {
