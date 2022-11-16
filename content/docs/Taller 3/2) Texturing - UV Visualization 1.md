@@ -3,7 +3,7 @@
 {{< hint info >}}
 <b> Exercise </b>
 
-<p>Redefine the shape texture coordinates to turn the above image upside down.</p>
+Redefinir las coordenas de textura de la figura, para invertir la imagen de abajo.
 
 <div style="display: flex; align-items: center; justify-content: center; padding: 1rem;">
     <img src="/showcase/sketches/uv_1/original_uv.png" width="200px">
@@ -124,6 +124,14 @@ Debido a que normalizamos el modo de textura; logramos invertir la textura resta
 
 - Los fragment shaders simplifican el mapeo de texturas.
 - Existen multiples maneras de editar el mapeo de texturas.
+
+# Referencias
+
+{{< hint danger >}}
+
+Visual Computing. (2022, 15 noviembre). Texturing. Visual Computing. Recuperado de https://visualcomputing.github.io/docs/shaders/texturing/
+
+{{< /hint >}}
 
 <style>
     #uv-1{
