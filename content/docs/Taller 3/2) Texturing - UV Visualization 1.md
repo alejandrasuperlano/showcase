@@ -120,6 +120,11 @@ Debido a que normalizamos el modo de textura; logramos invertir la textura resta
 
 </div>
 
+## Conclusión
+
+- Los fragment shaders simplifican el mapeo de texturas.
+- Existen multiples maneras de editar el mapeo de texturas.
+
 <style>
     #uv-1{
         background-color: black;
