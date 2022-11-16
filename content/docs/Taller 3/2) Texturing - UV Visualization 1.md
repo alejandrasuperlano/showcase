@@ -1,5 +1,16 @@
 # UV Visualization - Exercise 1 🔴🟢🔵
 
+{{< hint info >}}
+<b> Exercise </b>
+
+Redefine the shape texture coordinates to turn the above image upside down.
+
+<div style="display: flex; align-items: center; justify-content: center; padding: 1rem;">
+    <img src="/showcase/sketches/uv_1/original_uv.png">
+</div>
+
+{{< /hint >}}
+
 ## Solución y Resultados
 <div style="display:flex; flex-direction: column; align-items: center; justify-content: center;" id="uv-1">
 {{< p5-iframe sketch="/showcase/sketches/uv_1/sketch.js" lib1="https://cdn.jsdelivr.net/gh/VisualComputing/p5.treegl/p5.treegl.js" lib3="https://cdn.jsdelivr.net/gh/freshfork/p5.EasyCam@1.2.1/p5.easycam.js" width="320" height="320">}}
