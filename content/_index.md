@@ -6,19 +6,19 @@ type: docs
 ## Ejercicios 📙
 
 <div class="my-nav">
-    <a href="/showcase/docs/Taller-1/Visual-Illusions/" class="my-nav-option">
+    <a href="/showcase/docs/Taller-1/1-Visual-Illusions/" class="my-nav-option">
         <span class="title">Visual Illusions</span>
         <span class="emoji">👁‍🗨</span>
     </a>
-    <a href="/showcase/docs/Taller-1/Visual-Masking/" class="my-nav-option">
+    <a href="/showcase/docs/Taller-1/2-Visual-Masking/" class="my-nav-option">
         <span class="title">Visual Masking</span>
         <span class="emoji">🐹</span>
     </a>
-    <a href="/showcase/docs/Taller-2/WebGL-3D-App/" class="my-nav-option">
+    <a href="/showcase/docs/Taller-2/1-WebGL-3D-App/" class="my-nav-option">
         <span class="title">WebGL 3D App</span>
         <span class="emoji">🎵</span>
     </a>
-    <a href="/showcase/docs/Taller-3/Color-Blending/" class="my-nav-option">
+    <a href="/showcase/docs/Taller-3/1-Color-Blending/" class="my-nav-option">
         <span class="title">Color Blending</span>
         <span class="emoji">🌈</span>
     </a>
