@@ -109,10 +109,9 @@ void main() {
 
 ```
 
-Debido a que normalizamos el modo de textura; logramos invertir la textura restando cada una de las componentes en <span style="color: #a6e22e">x</span> y <span style="color: #a6e22e">y</span> a 1.0
-
 {{< /details >}}
 
+Debido a que normalizamos el modo de textura; logramos invertir la textura restando cada una de las componentes en <span style="color: #a6e22e">x</span> y <span style="color: #a6e22e">y</span> a 1.0
 
 ### Solución y Resultados
 <div style="display:flex; flex-direction: column; align-items: center; justify-content: center;" id="uv-1">
