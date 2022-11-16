@@ -1,4 +1,4 @@
-# Color Brightness and Tinting
+# Color Brightness and Tinting 👩‍🎨
 
 ## Solución y Resultados
 <div style="display:flex; flex-direction: column; align-items: center; justify-content: center;" id="cbat">
