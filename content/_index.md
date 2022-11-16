@@ -63,6 +63,7 @@ type: docs
     }
     .my-nav-option:hover{
         transform: scale(1.1);
+        text-decoration: none;
     }
     .my-nav-option .title{
         font-size: 1.2rem;
