@@ -46,7 +46,7 @@ type: docs
         justify-content: center;
         flex-wrap: wrap;
     }
-    .my-nav-option{
+    .my-nav-option, .my-nav-option:active{
         display: flex;
         flex-direction: column;
         width: 8rem;
