@@ -1,5 +1,7 @@
 # UV Visualization - Exercise 1 🔴🟢🔵
 
+<br>
+
 {{< hint info >}}
 <b> Exercise </b>
 
@@ -11,7 +13,7 @@
 
 {{< /hint >}}
 
-<h2 style="color: #FFAA66">Estrategia #1</h2>
+<h2 style="color: #b88dff">Estrategia #1</h2>
 
 ### JavaScript: Ajustando coordenadas u & v en vertex
 
