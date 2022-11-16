@@ -85,6 +85,8 @@ function draw() {
         background-color: black;
         border-radius: 1rem;
         padding: 1rem;
+
+        text-decoration: none;
     }
     #uv-1 iframe{
         border: none;
