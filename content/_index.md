@@ -64,6 +64,8 @@ type: docs
     }
     .my-nav-option:hover{
         transform: scale(1.1);
+    }
+    .my-nav-option:hover, .my-nav-option:hover .title, .my-nav-option:hover .emoji{
         text-decoration: none;
     }
     .my-nav-option .title{
