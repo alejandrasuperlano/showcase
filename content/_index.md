@@ -60,6 +60,7 @@ type: docs
         align-items:center;
         justify-content: center;
         transition: all .2s ease-in-out;
+        color: #84b2ff;
     }
     .my-nav-option:hover{
         transform: scale(1.1);
