@@ -1,7 +1,5 @@
 # UV Visualization - Exercise 1 🔴🟢🔵
 
-<br>
-
 {{< hint info >}}
 <b> Exercise </b>
 
@@ -13,9 +11,9 @@
 
 {{< /hint >}}
 
-# Solución #1
+## Solución #1
 
-### JavaScript: Ajustando coordenadas u & v en vertex
+### JavaScript: Ajustando coordenadas <span style="color: #f66">u</span> & <span style="color: #f66">v</span> en vertex
 
 Construcción de la figura invirtiendo las coordenadas de la textura en el llamado a vertex.
 
@@ -32,7 +30,7 @@ Siendo los parametros los siguientes:
 - v - the vertex's texture v-coordinate
 
 
-{{< details "Source Code" closed >}}
+{{< details "Source Code: JavaScript" closed >}}
 
 ``` javascript
 // Construcción de la figura invirtiendo las coordenadas de la textura
@@ -82,7 +80,41 @@ function draw() {
 {{< /details >}}
 
 
-## Solución y Resultados
+### Solución y Resultados
+<div style="display:flex; flex-direction: column; align-items: center; justify-content: center;" id="uv-1">
+{{< p5-iframe sketch="/showcase/sketches/uv_1/sketch.js" lib1="https://cdn.jsdelivr.net/gh/VisualComputing/p5.treegl/p5.treegl.js" lib3="https://cdn.jsdelivr.net/gh/freshfork/p5.EasyCam@1.2.1/p5.easycam.js" width="320" height="320">}}
+
+</div>
+
+## Solución #2
+
+### FragmentShader: Ajustando la variable gl_FragColor
+
+Construcción de la figura editando el mapeo de texturas en el fragment shader.
+
+El fragment shader se define a continuación:
+
+{{< details "Source Code: Fragment Shader" closed >}}
+
+``` frag
+precision mediump float;
+
+varying vec2 texcoords2;
+
+void main() {
+  // glsl swizzling is both handy and elegant
+  // see: https://www.khronos.org/opengl/wiki/Data_Type_(GLSL)#Swizzling
+  gl_FragColor = vec4(1.0 - texcoords2.x, 1.0 - texcoords2.y, 0.0, 1.0);
+}
+
+```
+
+Debido a que normalizamos el modo de textura; logramos invertir la textura restando cada una de las componentes en <span style="color: #f66">x</span> y <span style="color: #f66">y</span> a 1.0
+
+{{< /details >}}
+
+
+### Solución y Resultados
 <div style="display:flex; flex-direction: column; align-items: center; justify-content: center;" id="uv-1">
 {{< p5-iframe sketch="/showcase/sketches/uv_1/sketch.js" lib1="https://cdn.jsdelivr.net/gh/VisualComputing/p5.treegl/p5.treegl.js" lib3="https://cdn.jsdelivr.net/gh/freshfork/p5.EasyCam@1.2.1/p5.easycam.js" width="320" height="320">}}
 
