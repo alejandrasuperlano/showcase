@@ -33,6 +33,12 @@ let kernels = {
     [0.125, 0.25, 0.125],
     [0.0625, 0.125, 0.0625],
   ],
+
+  edge: [
+    [-1, -1, -1],
+    [-1, 8, -1],
+    [-1, -1, -1],
+  ],
 };
 
 function preload() {
@@ -124,6 +130,7 @@ function setupUI() {
   kernelRadio.option("sharpen", "Sharpen");
   kernelRadio.option("emboss", "Emboss");
   kernelRadio.option("blur", "Blur");
+  kernelRadio.option("edge", "Edge detection");
   kernelRadio.selected("none");
 
   kernelRadio.changed(() => {

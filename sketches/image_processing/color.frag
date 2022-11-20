@@ -1,18 +1,25 @@
 precision mediump float;
 
 uniform sampler2D texture;
-uniform int brightnessTool;
 uniform vec2 texOffset;
+
+// Herramienta de brillo seleccionada
+uniform int brightnessTool;
+
+// Posicion del mouse
 uniform vec2 mouse;
+
+// Resolucion de la pantalla
 uniform vec2 resolution;
+
 uniform float kernel[9];
+
 uniform bool magnifier;
 uniform bool region;
-
-varying vec2 texcoords2;
-
 uniform float radius;
 uniform float scale;
+
+varying vec2 texcoords2;
 
 float luma(vec3 texel){
   return 0.299 * texel.r + 0.587 * texel.g + 0.114 * texel.b;
@@ -108,16 +115,16 @@ void main() {
   if(dist < radius){
     // Lupa
     if(magnifier){
-      vec2 disV = gl_FragCoord.xy - mouse;
+      vec2 mouseDist = gl_FragCoord.xy - mouse;
 
       vec2 newCoords = gl_FragCoord.xy;
 
-      vec2 zoomed = (newCoords - (disV * scale)) / resolution;
+      vec2 zoomed = (newCoords - (mouseDist * scale)) / resolution;
+      
       // Se invierte el eje y
       zoomed = vec2(zoomed.x, 1.0 - zoomed.y);
 
       vec4 zoomedTexel = texture2D(texture, zoomed);
-      // zoomedTexel = applyKernel();
       zoomedTexel = changeBrightness(zoomedTexel);
 
       gl_FragColor = zoomedTexel;

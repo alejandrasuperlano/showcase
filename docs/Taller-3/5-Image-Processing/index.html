@@ -1,9 +1,104 @@
-<!doctype html><html lang=en-us dir=ltr><head><meta charset=utf-8><meta name=viewport content="width=device-width,initial-scale=1"><meta name=description content=" Image/Video processing 🖼️ # "><meta name=theme-color content="#FFFFFF"><meta name=color-scheme content="light dark"><meta property="og:title" content><meta property="og:description" content=" Image/Video processing 🖼️ # "><meta property="og:type" content="article"><meta property="og:url" content="https://mbolanoss.github.io/showcase/docs/Taller-3/5-Image-Processing/"><meta property="article:section" content="docs"><meta property="article:modified_time" content="2022-11-15T20:38:21-05:00"><title>5) Image Processing | Visual computing</title><link rel=manifest href=/showcase/manifest.json><link rel=icon href=/showcase/favicon.png type=image/x-icon><link rel=stylesheet href=/showcase/book.min.ab46de3e725a6415339a37bba23a0067534a37289b063c9f8d011515a63097a8.css integrity="sha256-q0bePnJaZBUzmje7ojoAZ1NKNyibBjyfjQEVFaYwl6g=" crossorigin=anonymous><script defer src=/showcase/flexsearch.min.js></script>
-<script defer src=/showcase/en.search.min.46efc8f1993215557d3a8dc5e6eec96c16136a060b89cbd3a08f5a179dc54abf.js integrity="sha256-Ru/I8ZkyFVV9Oo3F5u7JbBYTagYLicvToI9aF53FSr8=" crossorigin=anonymous></script></head><body dir=ltr><input type=checkbox class="hidden toggle" id=menu-control>
+<!doctype html><html lang=en-us dir=ltr><head><meta charset=utf-8><meta name=viewport content="width=device-width,initial-scale=1"><meta name=description content="Image/Video processing 🖼️ # Workshop Implement an image / video processing app supporting different masks, including other kernel sizes different than 3x3, and:
+A region-of-interest base tool to selectively apply a given mask.Hint: circular regions around the mouse pointer are handy and quite simple to implement by means of glsl distance. A magnifier tool. Requires a bit of research. For instance, look for it in shadertoy. Integrate luma and other coloring brightness tools."><meta name=theme-color content="#FFFFFF"><meta name=color-scheme content="light dark"><meta property="og:title" content><meta property="og:description" content="Image/Video processing 🖼️ # Workshop Implement an image / video processing app supporting different masks, including other kernel sizes different than 3x3, and:
+A region-of-interest base tool to selectively apply a given mask.Hint: circular regions around the mouse pointer are handy and quite simple to implement by means of glsl distance. A magnifier tool. Requires a bit of research. For instance, look for it in shadertoy. Integrate luma and other coloring brightness tools."><meta property="og:type" content="article"><meta property="og:url" content="https://mbolanoss.github.io/showcase/docs/Taller-3/5-Image-Processing/"><meta property="article:section" content="docs"><meta property="article:modified_time" content="2022-11-20T12:10:05-05:00"><title>5) Image Processing | Visual computing</title><link rel=manifest href=/showcase/manifest.json><link rel=icon href=/showcase/favicon.png type=image/x-icon><link rel=stylesheet href=/showcase/book.min.ab46de3e725a6415339a37bba23a0067534a37289b063c9f8d011515a63097a8.css integrity="sha256-q0bePnJaZBUzmje7ojoAZ1NKNyibBjyfjQEVFaYwl6g=" crossorigin=anonymous><script defer src=/showcase/flexsearch.min.js></script>
+<script defer src=/showcase/en.search.min.3444371bbd12b4adc8fa29ae7810f6e993823f5199090ec552c104b4efbf664e.js integrity="sha256-NEQ3G70StK3I+imueBD26ZOCP1GZCQ7FUsEEtO+/Zk4=" crossorigin=anonymous></script></head><body dir=ltr><input type=checkbox class="hidden toggle" id=menu-control>
 <input type=checkbox class="hidden toggle" id=toc-control><main class="container flex"><aside class=book-menu><div class=book-menu-content><nav><h2 class=book-brand><a class="flex align-center" href=/showcase/><span>Visual computing</span></a></h2><div class=book-search><input type=text id=book-search-input placeholder=Search aria-label=Search maxlength=64 data-hotkeys=s/><div class="book-search-spinner hidden"></div><ul id=book-search-results></ul></div><ul><li class=book-section-flat><span>Taller 1</span><ul><li><a href=/showcase/docs/Taller-1/1-Visual-Illusions/>1) Visual Illusions</a></li><li><a href=/showcase/docs/Taller-1/2-Visual-Masking/>2) Visual Masking</a></li></ul></li><li class=book-section-flat><span>Taller 2</span><ul><li><a href=/showcase/docs/Taller-2/1-WebGL-3D-App/>1) Web Gl 3 D App</a></li></ul></li><li class=book-section-flat><span>Taller 3</span><ul><li><a href=/showcase/docs/Taller-3/1-Color-Blending/>1) Color Blending</a></li><li><a href=/showcase/docs/Taller-3/2-Texturing-UV-Visualization-1/>2) Texturing Uv Visualization 1</a></li><li><a href=/showcase/docs/Taller-3/3-Texturing-UV-Visualization-2/>3) Texturing Uv Visualization 2</a></li><li><a href=/showcase/docs/Taller-3/4-Color-Brightness-and-Tinting/>4) Color Brightness and Tinting</a></li><li><a href=/showcase/docs/Taller-3/5-Image-Processing/ class=active>5) Image Processing</a></li><li><a href=/showcase/docs/Taller-3/6-Lighting/>6) Lighting</a></li></ul></li></ul></nav><script>(function(){var e=document.querySelector("aside .book-menu-content");addEventListener("beforeunload",function(){localStorage.setItem("menu.scrollTop",e.scrollTop)}),e.scrollTop=localStorage.getItem("menu.scrollTop")})()</script></div></aside><div class=book-page><header class=book-header><div class="flex align-center justify-between"><label for=menu-control><img src=/showcase/svg/menu.svg class=book-icon alt=Menu></label>
 <strong>5) Image Processing</strong>
-<label for=toc-control><img src=/showcase/svg/toc.svg class=book-icon alt="Table of Contents"></label></div><aside class="hidden clearfix"><nav id=TableOfContents><ul><li><a href=#imagevideo-processing->Image/Video processing 🖼️</a></li></ul></nav></aside></header><article class=markdown><h1 id=imagevideo-processing->Image/Video processing 🖼️
-<a class=anchor href=#imagevideo-processing->#</a></h1><iframe id=sketch style=width:705px;height:850px;background-color:transparent allowtransparency=true srcdoc="
+<label for=toc-control><img src=/showcase/svg/toc.svg class=book-icon alt="Table of Contents"></label></div><aside class="hidden clearfix"><nav id=TableOfContents><ul><li><a href=#imagevideo-processing->Image/Video processing 🖼️</a><ul><li><a href=#marco-teórico>Marco teórico</a><ul><li><a href=#kernel>Kernel</a></li></ul></li><li><a href=#solución-y-resultados>Solución y resultados</a></li><li><a href=#conclusiones>Conclusiones</a></li></ul></li></ul></nav></aside></header><article class=markdown><h1 id=imagevideo-processing->Image/Video processing 🖼️
+<a class=anchor href=#imagevideo-processing->#</a></h1><blockquote class="book-hint danger"><p><b>Workshop</b></p><p>Implement an image / video processing app supporting different masks, including other kernel sizes different than 3x3, and:</p><ul><li>A region-of-interest base tool to selectively apply a given mask.Hint: circular regions around the mouse pointer are handy and quite simple to implement by means of glsl distance.</li><li>A magnifier tool. Requires a bit of research. For instance, look for it in shadertoy.</li><li>Integrate luma and other coloring brightness tools.</li></ul></blockquote><h2 id=marco-teórico>Marco teórico
+<a class=anchor href=#marco-te%c3%b3rico>#</a></h2><h3 id=kernel>Kernel
+<a class=anchor href=#kernel>#</a></h3><p>Un kernel o mascara es una matriz usada para aplicar algun tipo de efecto como difuminado, detección de bordes
+, sobre una imagen. Eso se logra realizando una convolución entre el kernel y la imagen.<blockquote class="book-hint info"><strong>¿Qué es una convolución?</strong><br>En procesamiento de imagenes, una convolución consiste en multiplicar cada píxel de la imagen por la entrada correspondiente del kernel, luego al sumar todos los resultados, se obtiene el valor del nuevo píxel.</blockquote></p><p>A modo de ejemplo, se escogieron los siguientes kernels para mostrar su aplicación:</p><details><summary>Sharpening</summary><div class=markdown-inner><link rel=stylesheet href=/showcase/katex/katex.min.css><script defer src=/showcase/katex/katex.min.js></script>
+<script defer src=/showcase/katex/auto-render.min.js onload=renderMathInElement(document.body)></script><span>
+\[\begin{bmatrix}
+0 & -1 & 0\\
+-1 & 5 & -1\\
+0 & -1 & 0\\
+\end{bmatrix}\]</span></div></details><details><summary>Emboss</summary><div class=markdown-inner><span>\[\begin{bmatrix}
+-2 & -1 & 0\\
+-1 & 1 & 1\\
+0 & 1 & 2\\
+\end{bmatrix}\]</span></div></details><details><summary>Blur</summary><div class=markdown-inner><span>\[\begin{bmatrix}
+0.0625 & 0.125 & 0.0625\\
+0.125 & 0.25 & 0.125\\
+0.0625 & 0.125 & 0.0625\\
+\end{bmatrix}\]</span></div></details><details><summary>Edge detection</summary><div class=markdown-inner><span>\[\begin{bmatrix}
+-1 & -1 & -1\\
+-1 & 8 & -1\\
+-1 & -1 & -1\\
+\end{bmatrix}\]</span></div></details><h2 id=solución-y-resultados>Solución y resultados
+<a class=anchor href=#soluci%c3%b3n-y-resultados>#</a></h2><p>A continuación se muestran los fragmentos más relevante del código del fragment shader usado.<br>Primero, estas son las variables usadas:</p><details><summary>Variables</summary><div class=markdown-inner><div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-glsl data-lang=glsl><span style=display:flex><span><span style=color:#66d9ef>precision</span> <span style=color:#66d9ef>mediump</span> <span style=color:#66d9ef>float</span>;
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span><span style=color:#66d9ef>uniform</span> <span style=color:#66d9ef>sampler2D</span> texture;
+</span></span><span style=display:flex><span><span style=color:#66d9ef>uniform</span> <span style=color:#66d9ef>vec2</span> texOffset;
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span><span style=color:#75715e>// Herramienta de brillo seleccionada</span>
+</span></span><span style=display:flex><span><span style=color:#66d9ef>uniform</span> <span style=color:#66d9ef>int</span> brightnessTool;
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span><span style=color:#75715e>// Posicion del mouse</span>
+</span></span><span style=display:flex><span><span style=color:#66d9ef>uniform</span> <span style=color:#66d9ef>vec2</span> mouse;
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span><span style=color:#75715e>// Resolucion de la pantalla</span>
+</span></span><span style=display:flex><span><span style=color:#66d9ef>uniform</span> <span style=color:#66d9ef>vec2</span> resolution;
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span><span style=color:#66d9ef>uniform</span> <span style=color:#66d9ef>float</span> kernel[<span style=color:#ae81ff>9</span>];
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span><span style=color:#66d9ef>uniform</span> <span style=color:#66d9ef>bool</span> magnifier;
+</span></span><span style=display:flex><span><span style=color:#66d9ef>uniform</span> <span style=color:#66d9ef>bool</span> region;
+</span></span><span style=display:flex><span><span style=color:#66d9ef>uniform</span> <span style=color:#66d9ef>float</span> radius;
+</span></span><span style=display:flex><span><span style=color:#66d9ef>uniform</span> <span style=color:#66d9ef>float</span> scale;
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span><span style=color:#66d9ef>varying</span> <span style=color:#66d9ef>vec2</span> texcoords2;
+</span></span></code></pre></div></div></details><p>Con la siguiente función se aplica el kernel seleccionado:</p><details><summary>Función applyKernel</summary><div class=markdown-inner><div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-glsl data-lang=glsl><span style=display:flex><span><span style=color:#66d9ef>vec4</span> applyKernel(){
+</span></span><span style=display:flex><span>  <span style=color:#66d9ef>vec2</span> tc0 <span style=color:#f92672>=</span> texcoords2 <span style=color:#f92672>+</span> <span style=color:#66d9ef>vec2</span>(<span style=color:#f92672>-</span>texOffset.s, <span style=color:#f92672>-</span>texOffset.t);
+</span></span><span style=display:flex><span>  <span style=color:#66d9ef>vec2</span> tc1 <span style=color:#f92672>=</span> texcoords2 <span style=color:#f92672>+</span> <span style=color:#66d9ef>vec2</span>(         <span style=color:#ae81ff>0.0</span>, <span style=color:#f92672>-</span>texOffset.t);
+</span></span><span style=display:flex><span>  <span style=color:#66d9ef>vec2</span> tc2 <span style=color:#f92672>=</span> texcoords2 <span style=color:#f92672>+</span> <span style=color:#66d9ef>vec2</span>(<span style=color:#f92672>+</span>texOffset.s, <span style=color:#f92672>-</span>texOffset.t);
+</span></span><span style=display:flex><span>  <span style=color:#66d9ef>vec2</span> tc3 <span style=color:#f92672>=</span> texcoords2 <span style=color:#f92672>+</span> <span style=color:#66d9ef>vec2</span>(<span style=color:#f92672>-</span>texOffset.s,          <span style=color:#ae81ff>0.0</span>);
+</span></span><span style=display:flex><span>  <span style=color:#66d9ef>vec2</span> tc4 <span style=color:#f92672>=</span> texcoords2 <span style=color:#f92672>+</span> <span style=color:#66d9ef>vec2</span>(         <span style=color:#ae81ff>0.0</span>,          <span style=color:#ae81ff>0.0</span>);
+</span></span><span style=display:flex><span>  <span style=color:#66d9ef>vec2</span> tc5 <span style=color:#f92672>=</span> texcoords2 <span style=color:#f92672>+</span> <span style=color:#66d9ef>vec2</span>(<span style=color:#f92672>+</span>texOffset.s,          <span style=color:#ae81ff>0.0</span>);
+</span></span><span style=display:flex><span>  <span style=color:#66d9ef>vec2</span> tc6 <span style=color:#f92672>=</span> texcoords2 <span style=color:#f92672>+</span> <span style=color:#66d9ef>vec2</span>(<span style=color:#f92672>-</span>texOffset.s, <span style=color:#f92672>+</span>texOffset.t);
+</span></span><span style=display:flex><span>  <span style=color:#66d9ef>vec2</span> tc7 <span style=color:#f92672>=</span> texcoords2 <span style=color:#f92672>+</span> <span style=color:#66d9ef>vec2</span>(         <span style=color:#ae81ff>0.0</span>, <span style=color:#f92672>+</span>texOffset.t);
+</span></span><span style=display:flex><span>  <span style=color:#66d9ef>vec2</span> tc8 <span style=color:#f92672>=</span> texcoords2 <span style=color:#f92672>+</span> <span style=color:#66d9ef>vec2</span>(<span style=color:#f92672>+</span>texOffset.s, <span style=color:#f92672>+</span>texOffset.t);
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>  <span style=color:#66d9ef>vec4</span> rgba[<span style=color:#ae81ff>9</span>];
+</span></span><span style=display:flex><span>  rgba[<span style=color:#ae81ff>0</span>] <span style=color:#f92672>=</span> texture2D(texture, tc0);
+</span></span><span style=display:flex><span>  rgba[<span style=color:#ae81ff>1</span>] <span style=color:#f92672>=</span> texture2D(texture, tc1);
+</span></span><span style=display:flex><span>  rgba[<span style=color:#ae81ff>2</span>] <span style=color:#f92672>=</span> texture2D(texture, tc2);
+</span></span><span style=display:flex><span>  rgba[<span style=color:#ae81ff>3</span>] <span style=color:#f92672>=</span> texture2D(texture, tc3);
+</span></span><span style=display:flex><span>  rgba[<span style=color:#ae81ff>4</span>] <span style=color:#f92672>=</span> texture2D(texture, tc4);
+</span></span><span style=display:flex><span>  rgba[<span style=color:#ae81ff>5</span>] <span style=color:#f92672>=</span> texture2D(texture, tc5);
+</span></span><span style=display:flex><span>  rgba[<span style=color:#ae81ff>6</span>] <span style=color:#f92672>=</span> texture2D(texture, tc6);
+</span></span><span style=display:flex><span>  rgba[<span style=color:#ae81ff>7</span>] <span style=color:#f92672>=</span> texture2D(texture, tc7);
+</span></span><span style=display:flex><span>  rgba[<span style=color:#ae81ff>8</span>] <span style=color:#f92672>=</span> texture2D(texture, tc8);
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>  <span style=color:#66d9ef>vec4</span> convolution;
+</span></span><span style=display:flex><span>  <span style=color:#66d9ef>for</span> (<span style=color:#66d9ef>int</span> i <span style=color:#f92672>=</span> <span style=color:#ae81ff>0</span>; i <span style=color:#f92672>&lt;</span> <span style=color:#ae81ff>9</span>; i<span style=color:#f92672>++</span>) {
+</span></span><span style=display:flex><span>    convolution <span style=color:#f92672>+=</span> rgba[i]<span style=color:#f92672>*</span>kernel[i];
+</span></span><span style=display:flex><span>  }
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>  convolution <span style=color:#f92672>=</span> <span style=color:#66d9ef>vec4</span>(convolution.rgb, <span style=color:#ae81ff>1.0</span>);
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>  <span style=color:#66d9ef>return</span> convolution;
+</span></span><span style=display:flex><span>}
+</span></span></code></pre></div></div></details><p>Para calcular el area de interes o la lupa:</p><details><summary>Area</summary><div class=markdown-inner><div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-glsl data-lang=glsl><span style=display:flex><span><span style=color:#66d9ef>float</span> dist <span style=color:#f92672>=</span> distance(gl_FragCoord.xy, mouse);
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span><span style=color:#66d9ef>if</span>(dist <span style=color:#f92672>&lt;</span> radius){
+</span></span><span style=display:flex><span>...
+</span></span><span style=display:flex><span>}
+</span></span></code></pre></div></div></details><p>Por último, para realizar el efecto de lupa:</p><details><summary>Lupa</summary><div class=markdown-inner><div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-glsl data-lang=glsl><span style=display:flex><span><span style=color:#66d9ef>vec2</span> mouseDist <span style=color:#f92672>=</span> gl_FragCoord.xy <span style=color:#f92672>-</span> mouse;
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span><span style=color:#66d9ef>vec2</span> newCoords <span style=color:#f92672>=</span> gl_FragCoord.xy;
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span><span style=color:#66d9ef>vec2</span> zoomed <span style=color:#f92672>=</span> (newCoords <span style=color:#f92672>-</span> (mouseDist <span style=color:#f92672>*</span> scale)) <span style=color:#f92672>/</span> resolution;
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span><span style=color:#75715e>// Se invierte el eje y</span>
+</span></span><span style=display:flex><span>zoomed <span style=color:#f92672>=</span> <span style=color:#66d9ef>vec2</span>(zoomed.x, <span style=color:#ae81ff>1.0</span> <span style=color:#f92672>-</span> zoomed.y);
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span><span style=color:#66d9ef>vec4</span> zoomedTexel <span style=color:#f92672>=</span> texture2D(texture, zoomed);
+</span></span><span style=display:flex><span>zoomedTexel <span style=color:#f92672>=</span> changeBrightness(zoomedTexel);
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>gl_FragColor <span style=color:#f92672>=</span> zoomedTexel;
+</span></span></code></pre></div></div></details><br><iframe id=sketch style=width:705px;height:850px;background-color:transparent allowtransparency=true srcdoc="
         <!DOCTYPE html>
         <html>
           <head>
@@ -29,5 +124,6 @@
           <body>
           </body>
         </html>
-      "></iframe></article><footer class=book-footer><div class="flex flex-wrap justify-between"><div><a class="flex align-center" href=https://github.com/visualcomputing/showcase/commit/9e9680c95d8f0966b96415de0ded73b3b4225f9a title='Last modified by Santiago Acosta Meza | November 16, 2022' target=_blank rel=noopener><img src=/showcase/svg/calendar.svg class=book-icon alt=Calendar>
-<span>November 16, 2022</span></a></div></div><script>(function(){function e(e){const t=window.getSelection(),n=document.createRange();n.selectNodeContents(e),t.removeAllRanges(),t.addRange(n)}document.querySelectorAll("pre code").forEach(t=>{t.addEventListener("click",function(){e(t.parentElement),navigator.clipboard&&navigator.clipboard.writeText(t.parentElement.textContent)})})})()</script></footer><div class=book-comments></div><label for=menu-control class="hidden book-menu-overlay"></label></div><aside class=book-toc><div class=book-toc-content><nav id=TableOfContents><ul><li><a href=#imagevideo-processing->Image/Video processing 🖼️</a></li></ul></nav></div></aside></main></body></html>
+      "></iframe><h2 id=conclusiones>Conclusiones
+<a class=anchor href=#conclusiones>#</a></h2><ul><li>La forma del area de interes o de la lupa se puede cambiar usando diferentes aproximaciones</li><li>Las coordenadas de cada fragmento se deben normalizar</li><li>El eje y se debe invertir</li></ul></article><footer class=book-footer><div class="flex flex-wrap justify-between"><div><a class="flex align-center" href=https://github.com/visualcomputing/showcase/commit/6682ab1671ed84a405f55f3b1b96b8d2a33b341e title='Last modified by mbolanoss | November 20, 2022' target=_blank rel=noopener><img src=/showcase/svg/calendar.svg class=book-icon alt=Calendar>
+<span>November 20, 2022</span></a></div></div><script>(function(){function e(e){const t=window.getSelection(),n=document.createRange();n.selectNodeContents(e),t.removeAllRanges(),t.addRange(n)}document.querySelectorAll("pre code").forEach(t=>{t.addEventListener("click",function(){e(t.parentElement),navigator.clipboard&&navigator.clipboard.writeText(t.parentElement.textContent)})})})()</script></footer><div class=book-comments></div><label for=menu-control class="hidden book-menu-overlay"></label></div><aside class=book-toc><div class=book-toc-content><nav id=TableOfContents><ul><li><a href=#imagevideo-processing->Image/Video processing 🖼️</a><ul><li><a href=#marco-teórico>Marco teórico</a><ul><li><a href=#kernel>Kernel</a></li></ul></li><li><a href=#solución-y-resultados>Solución y resultados</a></li><li><a href=#conclusiones>Conclusiones</a></li></ul></li></ul></nav></div></aside></main></body></html>
