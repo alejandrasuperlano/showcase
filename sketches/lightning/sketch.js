@@ -56,10 +56,10 @@ function draw() {
     translate(models[i].position);
     let radius = models[i].size / 2;
     i % 3 === 0
-      ? box(radius * 2)
+      ? cone(radius, radius * 2)
       : i % 3 === 1
-      ? sphere(radius)
-      : torus(radius, radius / 4);
+      ? ellipsoid(radius, radius * 1.5)
+      : cylinder(radius, radius * 2);
     pop();
   }
 }
