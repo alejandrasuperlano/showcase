@@ -38,6 +38,10 @@ type: docs
         <span class="title">Image Processing</span>
         <span class="emoji">🖼️</span>
     </a>
+    <a href="/showcase/docs/Taller-3/5-Image-Processing/" class="my-nav-option">
+        <span class="title">Lighting</span>
+        <span class="emoji">🔦</span>
+    </a>
 </div>
 
 <style>
