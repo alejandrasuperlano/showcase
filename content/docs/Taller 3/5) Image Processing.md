@@ -177,8 +177,40 @@ gl_FragColor = zoomedTexel;
 
 {{< p5-iframe sketch="/showcase/sketches/image_processing/sketch.js" lib1="https://cdn.jsdelivr.net/gh/VisualComputing/p5.treegl/p5.treegl.js" lib2="https://cdnjs.cloudflare.com/ajax/libs/p5.js/1.4.2/p5.min.js"  width="705" height="850">}}
 
+
+## Aplicaciones 
+
+El procesamiento de imágenes tiene muchos campos de acción. Gracias  a su gran utilidad se ha extendido de  gran manera en toda la vida y lo podemos observar aplicado por ejemplo en  la medicina, la agricultura y  el espacio exterior.
+
+- <b>Medicina</b> : Es de gran utilidad para la visualización de imágenes como radiografías, resonancias, tacs, entre otros exámenes que funcionan bajo este método.
+
+<center>
+<img src="/showcase/sketches/image_processing\mislow-neurosurgclinnam2009-fig3.jpeg">
+</center>
+
+
+- <b> Agricultura </b> : Ayuda a identificar eficazmente los frutos, y diferenciar la maleza de la planta en general.
+
+<center>
+<img src="/showcase/sketches/image_processing\Como-procesar-imagenes-multiespectrales-en-agricultura.jpg">
+</center>
+
+- <b> Espacio Exterior </b> : Ha permitido a la humanidad avistar grandes planetas, galaxias entre otras, y el logro más reciente de este método fue poder visualizar de una manera clara un hoyo negro.
+
+<center>
+<img src="/showcase/sketches/image_processing\hubble-aniversario-treinta.jpg">
+</center>
+
 ## Conclusiones
 
 - La forma del area de interes o de la lupa se puede cambiar usando diferentes aproximaciones
 - Las coordenadas de cada fragmento se deben normalizar
 - El eje y se debe invertir
+
+# Referencias
+
+{{< hint danger >}}
+
+- Rubio, O. (2020, 2 octubre). Procesamiento de imagenes. https://www.vistronica.com/blog/post/procesamiento-de-imagenes.html
+
+{{< /hint >}}

@@ -66,6 +66,7 @@ Más información <a href="https://thebookofshaders.com/glossary/?search=texture
 <div style="color: white;padding: 0.5rem;">Seleccione el <span style="color: #FFAA66">color de tintado</span> con el selector.</div>
 </div>
 
+
 ## Conclusiones
 
 - Los texeles, como mapeos de texturas, facilitan la implementación de herramientas de luminosidad y tintado.

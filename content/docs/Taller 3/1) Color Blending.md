@@ -205,6 +205,8 @@ function draw() {
 
 {{< /details >}}
 
+
+
 ## Solución y resultados
 
 <div style="display:flex; flex-direction: column; align-items: center; justify-content: center;" id="color-blending">
@@ -213,6 +215,18 @@ function draw() {
 
 <div style="color: white;padding: 0.5rem;">Utilice el selector para cambiar el <span style="color: #FFAA66">modo de mezcla</span> (BlendMode).</div>
 </div>
+
+## Aplicaciones
+{{< hint warning >}}
+Existen distintas aplicaciones en la actualidad las cuales hacen uso actual del Color Blending 
+{{< /hint >}}
+
+<img src="/showcase/sketches/color_blending\ColorBlending.png">
+
+
+- <b> Kirita </b>: Krita es un programa profesional de pintura libre y de código abierto. Está hecho por artistas que quieren ver herramientas de arte asequibles para todos dentro del arte conceptual, pintores de texturas y mates, ilustraciones y cómics.
+- <b> Photopea </b> : Editor de fotos online, que puede trabajar con archivos PSD, XCF y Sketch (Photoshop, Gimp y Sketch App). Convierte entre PSD, XCF, JPG, PNG y muchos otros formatos.
+- <b> Paleto </b> : Paleto es capaz de extraer los colores de las fotos y la función de tintado que mezcla colores para crear otros nuevos. También ofrece una biblioteca de 1400 colores y una paleta que  permite almacenar y compartir los colores generados.
 
 ## Conclusiones
 
@@ -225,9 +239,11 @@ function draw() {
 
 {{< hint danger >}}
 
-Wikipedia contributors. (2022, 9 noviembre). Color Mixing. Wikipedia. Recuperado de https://en.wikipedia.org/wiki/Color_mixing
+- Wikipedia contributors. (2022, 9 noviembre). Color Mixing. Wikipedia. Recuperado de https://en.wikipedia.org/wiki/Color_mixing
 
-Visual Computing. (2022, 9 noviembre). Coloring. Visual Computing. Recuperado de https://visualcomputing.github.io/docs/shaders/coloring/
+- Visual Computing. (2022, 9 noviembre). Coloring. Visual Computing. Recuperado de https://visualcomputing.github.io/docs/shaders/coloring/
+
+- Just a moment. . . (s. f.). https://alternativeto.net/feature/color-blending/
 
 {{< /hint >}}
 

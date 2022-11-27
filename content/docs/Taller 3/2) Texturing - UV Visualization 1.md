@@ -120,6 +120,22 @@ Debido a que normalizamos el modo de textura; logramos invertir la textura resta
 
 </div>
 
+
+## Aplicaciones :
+
+<center>
+<img src="/showcase/sketches/uv_1\mediablock-buzzybees.jpg">
+</center>
+
+<b> Minecraft </b> nos ha brindado años de diversión, pero es un juego que, más allá del apartado artístico, no destaca mucho en los gráficos. Los shaders se han usado como  herramientas que han ayudado a elevar la calidad visual con nuevos efectos, texturas y modificaciones en gráficos. 
+
+
+<img src="/showcase/sketches/uv_1\minecraft1.PNG">
+Con la aplicación de nuevas texturas por medio de los shaders, el resultado es casi un juego totalmente distinito !!!. A continuación algunas imágenes de ejemplo :
+<img src="/showcase/sketches/uv_1\shadersv1.png">
+
+
+
 ## Conclusión
 
 - Los fragment shaders simplifican el mapeo de texturas.
@@ -129,7 +145,9 @@ Debido a que normalizamos el modo de textura; logramos invertir la textura resta
 
 {{< hint danger >}}
 
-Visual Computing. (2022, 15 noviembre). Texturing. Visual Computing. Recuperado de https://visualcomputing.github.io/docs/shaders/texturing/
+- Visual Computing. (2022, 15 noviembre). Texturing. Visual Computing. Recuperado de https://visualcomputing.github.io/docs/shaders/texturing/
+
+- Rhoton, S. (2022, 3 enero). 12 shaders recomendados para Minecraft (2022). Liga de Gamers. https://www.ligadegamers.com/shaders-minecraft/
 
 {{< /hint >}}
 
