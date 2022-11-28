@@ -43,8 +43,8 @@ type: docs
         <span class="emoji">🔦</span>
     </a>
     <a href="/showcase/docs/Taller-3/7-Procedular-Texturing/" class="my-nav-option">
-        <span class="title">Lighting</span>
-        <span class="emoji">🔦</span>
+        <span class="title">Procedular Texturing</span>
+        <span class="emoji">⚽</span>
     </a>
 </div>
 
