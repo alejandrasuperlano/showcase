@@ -222,9 +222,9 @@ El procesamiento de imágenes tiene muchos campos de acción. Gracias  a su gran
 
 <style>
 #cbat{
-  background-color: #e5e5f7;
+  background-color: white;
   opacity: 0.8;
-  background-image: radial-gradient(#444cf7 0.5px, #e5e5f7 0.5px);
+  background-image: radial-gradient(#444cf7 0.5px, white 0.5px);
   background-size: 10px 10px;
   border-radius: 1rem;
   padding: 1rem;

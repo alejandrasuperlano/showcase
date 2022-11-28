@@ -105,10 +105,10 @@ Ray Tracing es una tecnología que cambia en gran manera la forma en la que vemo
 
 <style>
 #cbat{
-  background-color: #e5e5f7;
+  background-color: #ffffff;
   opacity: 0.8;
-  background: radial-gradient(circle, transparent 20%, #e5e5f7 20%, #e5e5f7 80%, transparent 80%, transparent), radial-gradient(circle, transparent 20%, #e5e5f7 20%, #e5e5f7 80%, transparent 80%, transparent) 10px 10px, linear-gradient(#f7ed45 0.8px, transparent 0.8px) 0 -0.4px, linear-gradient(90deg, #f7ed45 0.8px, #e5e5f7 0.8px) -0.4px 0;
-  background-size: 20px 20px, 20px 20px, 10px 10px, 10px 10px;
+  background-image: radial-gradient(#ffbf00 0.25px, #ffffff 0.25px);
+  background-size: 5px 5px;
   border-radius: 1rem;
   padding: 1rem;
 }
