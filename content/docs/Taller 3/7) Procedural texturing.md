@@ -42,7 +42,7 @@ Adapte otros patrones del <a href="https://thebookofshaders.com/09/" target="_bl
 
         text-decoration: none !important;
     }
-    #uv-1 iframe{
+    #procedular-texturing iframe{
         border: none;
     }
 </style>
