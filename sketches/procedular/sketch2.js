@@ -29,7 +29,7 @@ function setup() {
 }
 
 function draw() {
-  background(33);
+  background(0);
   orbitControl();
   torus(50, 50);
 }
