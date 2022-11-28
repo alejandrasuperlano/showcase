@@ -30,7 +30,7 @@ function setup() {
 }
 
 function draw() {
-  background(33);
+  background(0);
   orbitControl();
   box(200, 200);
 }
