@@ -14,4 +14,6 @@ Adapte otros patrones del <a href="https://thebookofshaders.com/09/" target="_bl
 
 {{< p5-iframe sketch="/showcase/sketches/procedular/sketch2.js" lib1="https://cdn.jsdelivr.net/gh/VisualComputing/p5.treegl/p5.treegl.js" width="705" height="650">}}
 
-{{< p5-iframe sketch="/showcase/sketches/procedular/sketch2.js" lib1="https://cdn.jsdelivr.net/gh/VisualComputing/p5.treegl/p5.treegl.js" width="705" height="650">}}
+{{< p5-iframe sketch="/showcase/sketches/procedular/sketch3.js" lib1="https://cdn.jsdelivr.net/gh/VisualComputing/p5.treegl/p5.treegl.js" width="705" height="650">}}
+
+{{< p5-iframe sketch="/showcase/sketches/procedular/sketch4.js" lib1="https://cdn.jsdelivr.net/gh/VisualComputing/p5.treegl/p5.treegl.js" width="705" height="650">}}
