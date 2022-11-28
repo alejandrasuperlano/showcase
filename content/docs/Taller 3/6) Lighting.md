@@ -45,7 +45,12 @@ void main() {
 
 <br>
 
+
+<div style="display:flex; flex-direction: column; align-items: center; justify-content: center;" id="cbat">
+
 {{< p5-iframe sketch="/showcase/sketches/lightning/sketch.js" lib1="https://cdn.jsdelivr.net/gh/VisualComputing/p5.treegl/p5.treegl.js" lib2="https://cdnjs.cloudflare.com/ajax/libs/p5.js/1.4.2/p5.min.js" lib3="https://freshfork.github.io/p5.EasyCam/p5.easycam.js"  width="705" height="650">}}
+
+</div>
 
 
 ## Aplicaciones 
@@ -97,3 +102,17 @@ Ray Tracing es una tecnología que cambia en gran manera la forma en la que vemo
 - 🗹 Ray Tracing: ¿Qué es y para qué sirve? - Definición. (2020, 30 abril). GEEKNETIC. https://www.geeknetic.es/Ray-Tracing/que-es-y-para-que-sirve
 
 {{< /hint >}}
+
+<style>
+#cbat{
+  background-color: #e5e5f7;
+  opacity: 0.8;
+  background: radial-gradient(circle, transparent 20%, #e5e5f7 20%, #e5e5f7 80%, transparent 80%, transparent), radial-gradient(circle, transparent 20%, #e5e5f7 20%, #e5e5f7 80%, transparent 80%, transparent) 10px 10px, linear-gradient(#f7ed45 0.8px, transparent 0.8px) 0 -0.4px, linear-gradient(90deg, #f7ed45 0.8px, #e5e5f7 0.8px) -0.4px 0;
+  background-size: 20px 20px, 20px 20px, 10px 10px, 10px 10px;
+  border-radius: 1rem;
+  padding: 1rem;
+}
+#cbat iframe{
+  border: none;
+}
+</style>
