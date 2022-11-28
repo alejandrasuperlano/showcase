@@ -1,0 +1,37 @@
+<!doctype html><html lang=en-us dir=ltr><head><meta charset=utf-8><meta name=viewport content="width=device-width,initial-scale=1"><meta name=description content=" Procedural texturing ⚽ # Exercise Adapte otros patrones del libro de shaders y apliquelos a otras figuras 3D.
+Marco Teórico # Solución y Resultados # "><meta name=theme-color content="#FFFFFF"><meta name=color-scheme content="light dark"><meta property="og:title" content><meta property="og:description" content=" Procedural texturing ⚽ # Exercise Adapte otros patrones del libro de shaders y apliquelos a otras figuras 3D.
+Marco Teórico # Solución y Resultados # "><meta property="og:type" content="article"><meta property="og:url" content="https://mbolanoss.github.io/showcase/docs/Taller-3/7-Procedural-texturing/"><meta property="article:section" content="docs"><meta property="article:modified_time" content="2022-11-27T19:42:05-05:00"><title>7) Procedural Texturing | Visual computing</title><link rel=manifest href=/showcase/manifest.json><link rel=icon href=/showcase/favicon.png type=image/x-icon><link rel=stylesheet href=/showcase/book.min.ab46de3e725a6415339a37bba23a0067534a37289b063c9f8d011515a63097a8.css integrity="sha256-q0bePnJaZBUzmje7ojoAZ1NKNyibBjyfjQEVFaYwl6g=" crossorigin=anonymous><script defer src=/showcase/flexsearch.min.js></script>
+<script defer src=/showcase/en.search.min.ae066412f4bffe838ce3d69c7649fb9f8060c43ff65a848d5cc8b0fb7805bb37.js integrity="sha256-rgZkEvS//oOM49acdkn7n4BgxD/2WoSNXMiw+3gFuzc=" crossorigin=anonymous></script></head><body dir=ltr><input type=checkbox class="hidden toggle" id=menu-control>
+<input type=checkbox class="hidden toggle" id=toc-control><main class="container flex"><aside class=book-menu><div class=book-menu-content><nav><h2 class=book-brand><a class="flex align-center" href=/showcase/><span>Visual computing</span></a></h2><div class=book-search><input type=text id=book-search-input placeholder=Search aria-label=Search maxlength=64 data-hotkeys=s/><div class="book-search-spinner hidden"></div><ul id=book-search-results></ul></div><ul><li class=book-section-flat><span>Taller 1</span><ul><li><a href=/showcase/docs/Taller-1/1-Visual-Illusions/>1) Visual Illusions</a></li><li><a href=/showcase/docs/Taller-1/2-Visual-Masking/>2) Visual Masking</a></li></ul></li><li class=book-section-flat><span>Taller 2</span><ul><li><a href=/showcase/docs/Taller-2/1-WebGL-3D-App/>1) Web Gl 3 D App</a></li></ul></li><li class=book-section-flat><span>Taller 3</span><ul><li><a href=/showcase/docs/Taller-3/1-Color-Blending/>1) Color Blending</a></li><li><a href=/showcase/docs/Taller-3/2-Texturing-UV-Visualization-1/>2) Texturing Uv Visualization 1</a></li><li><a href=/showcase/docs/Taller-3/3-Texturing-UV-Visualization-2/>3) Texturing Uv Visualization 2</a></li><li><a href=/showcase/docs/Taller-3/4-Color-Brightness-and-Tinting/>4) Color Brightness and Tinting</a></li><li><a href=/showcase/docs/Taller-3/5-Image-Processing/>5) Image Processing</a></li><li><a href=/showcase/docs/Taller-3/6-Lighting/>6) Lighting</a></li><li><a href=/showcase/docs/Taller-3/7-Procedural-texturing/ class=active>7) Procedural Texturing</a></li></ul></li></ul></nav><script>(function(){var e=document.querySelector("aside .book-menu-content");addEventListener("beforeunload",function(){localStorage.setItem("menu.scrollTop",e.scrollTop)}),e.scrollTop=localStorage.getItem("menu.scrollTop")})()</script></div></aside><div class=book-page><header class=book-header><div class="flex align-center justify-between"><label for=menu-control><img src=/showcase/svg/menu.svg class=book-icon alt=Menu></label>
+<strong>7) Procedural Texturing</strong>
+<label for=toc-control><img src=/showcase/svg/toc.svg class=book-icon alt="Table of Contents"></label></div><aside class="hidden clearfix"><nav id=TableOfContents><ul><li><a href=#procedural-texturing->Procedural texturing ⚽</a><ul><li><a href=#marco-teórico>Marco Teórico</a></li><li><a href=#solución-y-resultados>Solución y Resultados</a></li></ul></li></ul></nav></aside></header><article class=markdown><h1 id=procedural-texturing->Procedural texturing ⚽
+<a class=anchor href=#procedural-texturing->#</a></h1><blockquote class="book-hint danger"><p><b>Exercise</b></p><p>Adapte otros patrones del <a href=https://thebookofshaders.com/09/ target=_blank>libro de shaders</a> y apliquelos a otras figuras 3D.</p></blockquote><h2 id=marco-teórico>Marco Teórico
+<a class=anchor href=#marco-te%c3%b3rico>#</a></h2><h2 id=solución-y-resultados>Solución y Resultados
+<a class=anchor href=#soluci%c3%b3n-y-resultados>#</a></h2><iframe id=sketch1 style=width:705px;height:650px;background-color:transparent allowtransparency=true srcdoc="
+        <!DOCTYPE html>
+        <html>
+          <head>
+            <script src=https://cdnjs.cloudflare.com/ajax/libs/p5.js/1.4.2/p5.min.js></script>
+            <script src=https://cdnjs.cloudflare.com/ajax/libs/p5.js/1.4.2/addons/p5.sound.min.js></script>
+            
+            
+            
+            
+            
+            <script src=/showcase/sketches/procedular/sketch1.js></script>
+
+            <style>
+              html{
+                background-color: rgba(0, 0, 0, 0);
+              }
+              body{
+                background-color: transparent;
+                margin: 0;
+              }
+            </style>
+          </head>
+          <body>
+          </body>
+        </html>
+      "></iframe></article><footer class=book-footer><div class="flex flex-wrap justify-between"><div><a class="flex align-center" href=https://github.com/visualcomputing/showcase/commit/2a83f4d43a4221e2fbf753cd3def8d0ffe95abb7 title='Last modified by Santiago Acosta Meza | November 28, 2022' target=_blank rel=noopener><img src=/showcase/svg/calendar.svg class=book-icon alt=Calendar>
+<span>November 28, 2022</span></a></div></div><script>(function(){function e(e){const t=window.getSelection(),n=document.createRange();n.selectNodeContents(e),t.removeAllRanges(),t.addRange(n)}document.querySelectorAll("pre code").forEach(t=>{t.addEventListener("click",function(){e(t.parentElement),navigator.clipboard&&navigator.clipboard.writeText(t.parentElement.textContent)})})})()</script></footer><div class=book-comments></div><label for=menu-control class="hidden book-menu-overlay"></label></div><aside class=book-toc><div class=book-toc-content><nav id=TableOfContents><ul><li><a href=#procedural-texturing->Procedural texturing ⚽</a><ul><li><a href=#marco-teórico>Marco Teórico</a></li><li><a href=#solución-y-resultados>Solución y Resultados</a></li></ul></li></ul></nav></div></aside></main></body></html>
