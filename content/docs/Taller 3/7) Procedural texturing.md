@@ -8,13 +8,17 @@ Adapte otros patrones del <a href="https://thebookofshaders.com/09/" target="_bl
 
 ## Solución y Resultados
 
-{{< p5-iframe sketch="/showcase/sketches/procedular/sketch1.js"  lib1="https://cdn.jsdelivr.net/gh/VisualComputing/p5.treegl/p5.treegl.js" width="400" height="400">}}
+<div style="display:flex; flex-direction: column; align-items: center; justify-content: center;" id="color-blending">
 
-{{< p5-iframe sketch="/showcase/sketches/procedular/sketch2.js" lib1="https://cdn.jsdelivr.net/gh/VisualComputing/p5.treegl/p5.treegl.js" width="400" height="400">}}
+{{< p5-iframe sketch="/showcase/sketches/procedular/sketch1.js"  lib1="https://cdn.jsdelivr.net/gh/VisualComputing/p5.treegl/p5.treegl.js" width="420" height="420">}}
 
-{{< p5-iframe sketch="/showcase/sketches/procedular/sketch3.js" lib1="https://cdn.jsdelivr.net/gh/VisualComputing/p5.treegl/p5.treegl.js" width="400" height="400">}}
+{{< p5-iframe sketch="/showcase/sketches/procedular/sketch2.js" lib1="https://cdn.jsdelivr.net/gh/VisualComputing/p5.treegl/p5.treegl.js" width="420" height="420">}}
 
-{{< p5-iframe sketch="/showcase/sketches/procedular/sketch4.js" lib1="https://cdn.jsdelivr.net/gh/VisualComputing/p5.treegl/p5.treegl.js" width="400" height="400">}}
+{{< p5-iframe sketch="/showcase/sketches/procedular/sketch3.js" lib1="https://cdn.jsdelivr.net/gh/VisualComputing/p5.treegl/p5.treegl.js" width="420" height="420">}}
+
+{{< p5-iframe sketch="/showcase/sketches/procedular/sketch4.js" lib1="https://cdn.jsdelivr.net/gh/VisualComputing/p5.treegl/p5.treegl.js" width="420" height="420">}}
+
+</div>
 
 ## Conclusiones
 
