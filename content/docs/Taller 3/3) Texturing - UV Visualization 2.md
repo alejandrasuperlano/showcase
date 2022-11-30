@@ -7,6 +7,189 @@
 2. Utilizar otras figuras, diferentes a quad, como filtros.
 {{< /hint >}}
 
+{{< details "Source Code: JavaScript" closed >}}
+
+``` javascript
+
+let easycam;
+let uvShader;
+let opacity;
+let mode;
+let figure = 'Ellipse 🌌';
+
+const combinationMapper = {'Blue 🔵 + Green 🟢' : 0, 'Blue 🔵 + Red 🔴' : 1, 'Green 🟢 + Red 🔴' : 2, 
+  'Green 🟢 + Blue 🔵' : 3, 'Red 🔴 + Blue 🔵' : 4, 'Red 🔴 + Green 🟢' : 5 };
+
+function preload() {
+  // Define geometry in world space (i.e., matrices: Tree.pmvMatrix).
+  // The projection and modelview matrices may be emitted separately
+  // (i.e., matrices: Tree.pMatrix | Tree.mvMatrix), which actually
+  // leads to the same gl_Position result.
+  // Interpolate only texture coordinates (i.e., varyings: Tree.texcoords2).
+  // see: https://github.com/VisualComputing/p5.treegl#handling
+  uvShader = readShader('/showcase/sketches/uv_2/uv_alpha.frag',
+              { matrices: Tree.pmvMatrix, varyings: Tree.texcoords2 });
+}
+
+function setup() {
+  createCanvas(300, 300, WEBGL);
+
+  // easycam stuff
+  let state = {
+    distance: 250,           // scalar
+    center: [0, 0, 0],       // vector
+    rotation: [0, 0, 0, 1],  // quaternion
+  };
+
+  // Configuración de EasyCam
+  easycam = createEasyCam();
+  easycam.state_reset = state;   // state to use on reset (double-click/tap)
+  easycam.setState(state, 2000); // now animate to that state
+  textureMode(NORMAL);
+
+  // Slider de Opacidad
+  opacity = createSlider(0, 1, 0.5, 0.01);
+  opacity.position(10, 12);
+  opacity.style('width', '280px');
+
+  // Creación de select de canales de color
+  modeSelect = createSelect();
+  modeSelect.position(15, height - 20);
+  modeSelect.style('width', `${width/2}px`);
+
+  modeSelect.option('Blue 🔵 + Green 🟢'); 
+  modeSelect.option('Blue 🔵 + Red 🔴');
+  modeSelect.option('Green 🟢 + Red 🔴');
+  modeSelect.option('Green 🟢 + Blue 🔵');
+  modeSelect.option('Red 🔴 + Blue 🔵');
+  modeSelect.option('Red 🔴 + Green 🟢');
+
+  modeSelect.changed(selectModeEvent);
+
+  // Creación de select de figura
+  figureSelect = createSelect();
+  figureSelect.position(30+width/2, height - 20);
+  figureSelect.style('width', `${width/3}px`);
+
+  figureSelect.option('Ellipse 🌌'); 
+  figureSelect.option('Circle ⭕');
+  figureSelect.option('Triangle 🔺')
+  figureSelect.option('Rectangle 🟦');
+
+  figureSelect.changed(selectFigureEvent);
+}
+
+function selectModeEvent(){
+  mode = modeSelect.value();
+}
+
+function selectFigureEvent(){
+  figure = figureSelect.value();
+}
+
+function draw() {
+  background(200);
+  // reset shader so that the default shader is used to render the 3D scene
+  resetShader();
+
+  // world space scene
+  axes();
+  grid();
+  translate(0, -70);
+  rotateY(0.5);
+  fill(color(255, 0, 255, 125));
+  box(30, 50);
+  translate(70, 70);
+  fill(color(0, 255, 255, 125));
+  sphere(30, 50);
+
+  // use custom shader
+  shader(uvShader);
+
+  // Pasa valor a fregment shader mediante una uniforme
+  // https://p5js.org/reference/#/p5.Shader/setUniform
+  uvShader.setUniform('opacity', opacity.value());
+
+  uvShader.setUniform('combination', combinationMapper[mode]);
+
+
+  // definición de la figura
+  beginHUD();
+  noStroke();
+
+  if (figure == 'Ellipse 🌌')         { ellipse(width/2, height/2, width, width*4/5); }
+  else if (figure == 'Circle ⭕')     { circle(width/2, height/2, width, height); }
+  else if (figure == 'Triangle 🔺')   { triangle(width/2, 0, 0, height, width, height); }
+  else                                { quad(0, 0, width, 0, width, height, 0, height); }
+  endHUD();
+}
+
+function mouseWheel(event) {
+  //comment to enable page scrolling
+  return false;
+}
+
+```
+
+{{< /details >}}
+
+
+{{< details "Source Code: Fragmetn Shader" closed >}}
+
+``` frag
+
+precision mediump float;
+
+varying vec2 texcoords2;
+varying vec4 color4;
+
+// uniform is sent by the sketch
+uniform float opacity;
+uniform int combination;
+
+void main() {
+  // ////////// //
+  // EXPLIACIÓN //
+  // ////////// //
+
+  // // gl_FragColor es un vector de cuatro elementos
+  // // vec4 es una función que construye dicho vector (n:4)
+
+  // gl_FragColor = vec4(0.0, texcoords2.x, texcoords2.y, opacity);
+
+  // // se utilizan las coordenas texcoords2.x y texcoords2.y
+  // // para poblar coordenas del vector de color
+
+  // // en este caso, se pasan las coordenas <x> al canal verde y 
+  // // las coordenas <y> al canal azul 
+
+  // ////// //
+  // CODIGO //
+  // ////// //
+
+  // {'Blue 🔵 + Green 🟢' : 0, 'Blue 🔵 + Red 🔴' : 1, 'Green 🟢 + Red 🔴' : 2, 
+  //   'Green 🟢 + Blue 🔵' : 3, 'Red 🔴 + Blue 🔵' : 4, 'Red 🔴 + Green 🟢' : 5 }
+
+  if (combination == 0){
+    gl_FragColor = vec4(0.0, texcoords2.x, texcoords2.y, opacity);
+  }else if ( combination == 1){
+    gl_FragColor = vec4(texcoords2.x, 0.0, texcoords2.y, opacity);
+  }else if (combination == 2){
+    gl_FragColor = vec4(texcoords2.x, texcoords2.y, 0.0, opacity);
+  }else if (combination == 3){
+    gl_FragColor = vec4(0.0, texcoords2.y, texcoords2.x, opacity);
+  }else if (combination == 4){
+    gl_FragColor = vec4(texcoords2.y, 0.0, texcoords2.x, opacity);
+  }else if (combination==5){
+    gl_FragColor = vec4(texcoords2.y, texcoords2.x, 0.0, opacity);
+  }else{
+  }
+}
+
+```
+
+{{< /details >}}
+
 ## Solución y Resultados
 <div style="display:flex; flex-direction: column; align-items: center; justify-content: center;" id="uv-2">
 {{< p5-iframe sketch="/showcase/sketches/uv_2/sketch.js" lib1="https://cdn.jsdelivr.net/gh/VisualComputing/p5.treegl/p5.treegl.js" lib3="https://cdn.jsdelivr.net/gh/freshfork/p5.EasyCam@1.2.1/p5.easycam.js" width="320" height="320">}}
