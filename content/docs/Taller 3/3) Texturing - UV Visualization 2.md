@@ -134,7 +134,7 @@ function mouseWheel(event) {
 {{< /details >}}
 
 
-{{< details "Source Code: Fragmetn Shader" closed >}}
+{{< details "Source Code: Fragment Shader" closed >}}
 
 ``` frag
 
