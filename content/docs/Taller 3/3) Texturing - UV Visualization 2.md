@@ -7,6 +7,8 @@
 2. Utilizar otras figuras, diferentes a quad, como filtros.
 {{< /hint >}}
 
+## Source Code
+
 {{< details "Source Code: JavaScript" closed >}}
 
 ``` javascript
