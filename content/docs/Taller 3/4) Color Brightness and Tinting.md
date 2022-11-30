@@ -56,6 +56,208 @@ Siendo los parametros los siguientes:
 
 Más información <a href="https://thebookofshaders.com/glossary/?search=texture2D" target="_blank">aqui</a>.
 
+## Source Code
+
+{{< details "Source Code: JavaScript" closed >}}
+
+``` javascript
+
+let lumaShader;
+let img;
+let grey_scale;
+let brightnessTool, colorPicker, tintMode;
+
+const brightnessToolToCombination  = {'💡 None': 0, '💡 Luma':1, '💡 HSV':2, '💡 HSL':3, '💡 Component Avarage':4};
+const tintModeToCombination = { '🎨 Multiply ❌': 0, '🎨 Multiply ❌ + Brightness 💡': 1, '🎨 Add ➕' : 2,
+  '🎨 Difference ➖' : 3, '🎨 Darkest 🌑' : 4, '🎨 Lightest 🌞' : 5,
+}
+
+function preload() {
+  lumaShader = readShader('/showcase/sketches/color_br_and_tinting/frag.frag', { varyings: Tree.texcoords2 });
+  img = loadImage('/showcase/sketches/color_br_and_tinting/fire_breathing.png');
+}
+
+function setup() {
+  createCanvas(700, 500, WEBGL);
+
+  noStroke();
+  textureMode(NORMAL);
+  colorMode(RGB, 1);
+  shader(lumaShader);
+
+  // Selector de modo de Brightness Tool
+  brightnessTool = 'None'
+
+  brightnessToolMode = createSelect();
+  brightnessToolMode.position(15, 15);
+  brightnessToolMode.style('width', `${width/4}px`);
+
+  brightnessToolMode.option('💡 None'); 
+  brightnessToolMode.option('💡 Luma'); 
+  brightnessToolMode.option('💡 HSV');
+  brightnessToolMode.option('💡 HSL');
+  brightnessToolMode.option('💡 Component Avarage');
+
+  brightnessToolMode.changed(selectBrightnessToolModeEvent);
+
+  // Selector de color para tinte
+  colorPicker = createColorPicker(color(1, 0, 0));
+  colorPicker.position(width-45, 17);
+
+  // Checkbox para aplicar tinte
+  tintModecheck = createCheckbox('  Tint? 🎨', false);
+  tintModecheck.position(width - 155, 15);
+  tintModecheck.style('color', 'white');
+  tintModecheck.style('background', 'rgba(0, 0, 0, 0.5)');
+  tintModecheck.style('padding', "5px");
+  tintModecheck.style('border-radius', '20px');
+
+  // Creación de select de blendMode
+
+  tintMode = 'Multiply ❌';
+
+  tintModeSelect = createSelect();
+
+  tintModeSelect.position(width/3, 15);
+  tintModeSelect.style('width', `${width/4}px`);
+  tintModeSelect.option('🎨 Multiply ❌'); 
+  tintModeSelect.option('🎨 Add ➕');
+  tintModeSelect.option('🎨 Difference ➖');
+  tintModeSelect.option('🎨 Darkest 🌑');
+  tintModeSelect.option('🎨 Lightest 🌞');
+
+  tintModeSelect.changed(tintModeSelectEvent);
+
+  // Definir imagen como textura
+  lumaShader.setUniform('texture', img);
+}
+
+function selectBrightnessToolModeEvent(){
+  brightnessTool = brightnessToolMode.value();
+}
+
+function tintModeSelectEvent(){
+  tintMode = tintModeSelect.value();
+}
+
+function draw() {
+  background(0);
+
+  lumaShader.setUniform('brightnessToolCombination', brightnessToolToCombination[brightnessTool]);
+  
+  const myColor = colorPicker.color();
+  lumaShader.setUniform('tintColor', [red(myColor), green(myColor), blue(myColor), 1.0]);
+  lumaShader.setUniform('tintEnabled', tintModecheck.checked());
+  lumaShader.setUniform('colorBlendingCombination', tintModeToCombination[tintMode]);
+
+  quad(-width / 2, -height / 2, width / 2, -height / 2,
+        width / 2, height / 2, -width / 2, height / 2);
+}
+
+```
+
+{{< /details >}}
+
+{{< details "Source Code: Fragment Shader" closed >}}
+
+``` frag
+
+precision mediump float;
+
+// uniforms are defined and sent by the sketch
+uniform sampler2D texture;
+
+uniform int brightnessToolCombination;
+
+uniform bool tintEnabled;
+uniform vec4 tintColor;
+uniform int colorBlendingCombination;
+
+// interpolated texcoord (same name and type as in vertex shader)
+varying vec2 texcoords2;
+
+// Transformación de brillo sobre texel
+float luma(vec3 texel){
+  return 0.299 * texel.r + 0.587 * texel.g + 0.114 * texel.b;
+}
+
+float mean(vec3 texel){
+  return (texel.r + texel.g + texel.b)/3.0;
+}
+
+float hsv(vec3 texel){
+  return max(max(texel.r, texel.g), texel.b);
+}
+
+float hsl(vec3 texel){
+  float maxColor = max(max(texel.r, texel.g), texel.b);
+  float minColor = min(min(texel.r, texel.g), texel.b);
+
+  return (maxColor + minColor)/2.0;
+}
+
+// Transformación de tintado sobre texel
+vec4 mult(vec4 texel){
+  return tintColor * texel;
+}
+
+vec4 add(vec4 texel){
+  return tintColor + texel;
+}
+
+vec4 diff(vec4 texel){
+  return max(texel, tintColor) - min(texel, tintColor);
+}
+
+vec4 light(vec4 texel){
+  return max(tintColor, texel);
+}
+
+vec4 dark(vec4 texel){
+  return min(tintColor, texel);
+}
+
+
+void main() {
+  // texture2D(texture, texcoords2) samples texture at texcoords2 
+  // and returns the normalized texel color
+
+  vec4 texel = texture2D(texture, texcoords2);
+
+  if (brightnessToolCombination == 0){
+    texel = texel;
+  }else if (brightnessToolCombination == 1){
+    texel = vec4((vec3(luma(texel.rgb))), 1.0);
+  }else if (brightnessToolCombination == 2){
+    texel = vec4((vec3(hsv(texel.rgb))), 1.0);
+  }else if (brightnessToolCombination == 3){
+    texel = vec4((vec3(hsl(texel.rgb))), 1.0);
+  }else{
+    texel = vec4((vec3(mean(texel.rgb))), 1.0);
+  } 
+
+  // Tinting
+  if (tintEnabled){
+    if (colorBlendingCombination == 0){
+      texel = mult(texel);
+    }else if (colorBlendingCombination == 2){
+      texel = add(texel);
+    }else if (colorBlendingCombination == 3) {
+      texel = diff(texel);
+    }else if (colorBlendingCombination == 4){
+      texel = light(texel);
+    }else if (colorBlendingCombination == 5){
+      texel = dark(texel);
+    }
+  }
+
+  gl_FragColor = texel;
+}
+
+```
+
+{{< /details >}}
+
 ## Solución y Resultados
 <div style="display:flex; flex-direction: column; align-items: center; justify-content: center;" id="cbat">
 {{< p5-iframe sketch="/showcase/sketches/color_br_and_tinting/sketch.js" lib1="https://cdn.jsdelivr.net/gh/VisualComputing/p5.treegl/p5.treegl.js" lib2="https://cdnjs.cloudflare.com/ajax/libs/p5.js/1.4.2/p5.min.js" width="720" height="520">}}
